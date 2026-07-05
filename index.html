@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Özgür Matiloğlu — Web3 Researcher × Muay Thai Trainer</title>
+<meta name="description" content="Özgür Matiloğlu — Web3/Blockchain researcher & vibe coder, Muay Thai trainer. Founder & President @ MEF Blockchain Club, EigenCloud, Injective, Midnight & Stellar Ambassador.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0F19;
+    --surface:rgba(22,31,48,.55);
+    --surface-solid:#161F30;
+    --line:rgba(255,255,255,.05);
+    --line-strong:rgba(255,255,255,.1);
+    --text:#E9EEF7;
+    --muted:#8B97AD;
+    --blue:#00E5FF;
+    --blue-dim:rgba(0,229,255,.12);
+    --red:#FF3B30;
+    --red-dim:rgba(255,59,48,.12);
+    --radius:18px;
+    --font-head:'Space Grotesk',system-ui,sans-serif;
+    --font-body:'Inter',system-ui,sans-serif;
+    --font-mono:'JetBrains Mono',ui-monospace,Consolas,monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+  /* ambient cyber glow + grid */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+    background:
+      radial-gradient(700px 500px at 15% -5%, rgba(0,229,255,.08), transparent 60%),
+      radial-gradient(700px 500px at 95% 105%, rgba(255,59,48,.07), transparent 60%),
+      radial-gradient(500px 400px at 80% 20%, rgba(0,229,255,.04), transparent 60%);
+  }
+  body::after{
+    content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.35;
+    background-image:
+      linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size:56px 56px;
+    mask-image:radial-gradient(ellipse 90% 70% at 50% 0%, #000 30%, transparent 80%);
+  }
+  ::selection{background:var(--blue);color:#06121a}
+  ::-webkit-scrollbar{width:10px}
+  ::-webkit-scrollbar-track{background:var(--bg)}
+  ::-webkit-scrollbar-thumb{background:#243147;border-radius:99px}
+
+  h1,h2,h3,h4{font-family:var(--font-head);letter-spacing:-.01em}
+  p{color:var(--muted)}
+  .mono{font-family:var(--font-mono)}
+
+  /* ================= NAV ================= */
+  nav{
+    position:sticky;top:0;z-index:100;
+    background:rgba(11,15,25,.72);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1120px;margin:0 auto;padding:.85rem 1.2rem;
+    display:flex;align-items:center;gap:1rem;
+  }
+  .logo{font-family:var(--font-head);font-weight:700;font-size:1.02rem;white-space:nowrap}
+  .logo .x{color:var(--blue)}
+  .logo .k{color:var(--red)}
+  .nav-links{display:flex;gap:.15rem;flex-wrap:wrap;margin-left:auto}
+  .nav-links a{
+    color:var(--muted);text-decoration:none;font-size:.83rem;font-weight:600;
+    padding:.4rem .6rem;border-radius:8px;transition:.2s;
+  }
+  .nav-links a:hover{color:var(--blue);background:var(--blue-dim)}
+  .nav-links a.combat:hover{color:var(--red);background:var(--red-dim)}
+  .lang-switch{display:flex;border:1px solid var(--line-strong);border-radius:99px;overflow:hidden;background:var(--surface)}
+  .lang-switch button{
+    background:none;border:none;color:var(--muted);font-weight:700;font-size:.78rem;
+    font-family:var(--font-mono);padding:.35rem .75rem;cursor:pointer;transition:.2s;
+  }
+  .lang-switch button.active{background:var(--blue);color:#06121a}
+
+  /* ================= LIVE STATUS PILL ================= */
+  .status-pill{
+    position:fixed;top:66px;right:18px;z-index:99;
+    display:flex;align-items:center;gap:.55rem;
+    background:var(--surface);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    border:1px solid var(--line-strong);
+    border-radius:99px;padding:.45rem .95rem;
+    font-family:var(--font-mono);font-size:.72rem;color:var(--text);
+    box-shadow:0 8px 32px rgba(0,0,0,.4), 0 0 18px rgba(0,229,255,.08);
+  }
+  .status-pill .dot{
+    width:9px;height:9px;border-radius:50%;background:var(--blue);flex-shrink:0;
+    box-shadow:0 0 8px var(--blue);
+    animation:pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%,100%{opacity:1;box-shadow:0 0 6px var(--blue)}
+    50%{opacity:.45;box-shadow:0 0 14px var(--blue)}
+  }
+  .status-pill b{color:var(--blue);font-weight:600}
+  @media(max-width:720px){.status-pill{display:none}}
+
+  /* ================= LAYOUT ================= */
+  .wrap{max-width:1120px;margin:0 auto;padding:0 1.2rem}
+  section{padding:4.5rem 0 1rem}
+  .section-tag{
+    display:inline-flex;align-items:center;gap:.5rem;
+    font-family:var(--font-mono);font-size:.72rem;font-weight:600;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--blue);
+    margin-bottom:.7rem;
+  }
+  .section-tag::before{content:"//";opacity:.5}
+  .section-tag.combat{color:var(--red)}
+  h2{font-size:2rem;margin-bottom:1.4rem}
+  h3{font-size:1.15rem;margin:1.7rem 0 .7rem}
+
+  /* ================= GLASS CARD BASE ================= */
+  .glass{
+    background:var(--surface);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+  }
+
+  /* ================= HERO ================= */
+  .hero{
+    padding:4.2rem 0 2.6rem;
+    display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center;
+  }
+  .terminal{
+    font-family:var(--font-mono);font-size:.82rem;color:var(--blue);
+    background:rgba(0,0,0,.35);border:1px solid var(--line-strong);
+    border-radius:10px;padding:.6rem .9rem;display:inline-flex;align-items:center;gap:.5rem;
+    margin-bottom:1.3rem;min-width:min(420px,100%);
+  }
+  .terminal .prompt{color:var(--muted)}
+  .terminal .cursor{
+    display:inline-block;width:8px;height:15px;background:var(--blue);
+    animation:blink 1s steps(1) infinite;vertical-align:middle;
+  }
+  @keyframes blink{50%{opacity:0}}
+  .hero h1{font-size:clamp(2.2rem,5.2vw,3.4rem);line-height:1.08;margin:.4rem 0 1rem}
+  .hero h1 .blue{color:var(--blue);text-shadow:0 0 24px rgba(0,229,255,.35)}
+  .hero .role{font-family:var(--font-mono);color:var(--muted);font-size:.85rem;letter-spacing:.06em}
+  .hero .role b{color:var(--text)}
+  .badges{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.2rem 0}
+  .badge{
+    font-size:.76rem;font-weight:600;color:var(--text);
+    background:var(--surface);border:1px solid var(--line-strong);
+    backdrop-filter:blur(12px);
+    padding:.34rem .75rem;border-radius:99px;transition:.2s;
+  }
+  .badge:hover{border-color:rgba(0,229,255,.5);box-shadow:0 0 14px rgba(0,229,255,.15)}
+  .badge.combat:hover{border-color:rgba(255,59,48,.55);box-shadow:0 0 14px rgba(255,59,48,.18)}
+  blockquote{
+    border-left:3px solid var(--blue);padding:.9rem 1.3rem;margin:1.3rem 0;
+    background:var(--surface);backdrop-filter:blur(12px);
+    border-radius:0 var(--radius) var(--radius) 0;
+    font-style:italic;color:var(--text);border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .cta-row{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.4rem}
+  .btn{
+    display:inline-block;text-decoration:none;font-weight:700;font-size:.9rem;
+    font-family:var(--font-head);
+    padding:.72rem 1.5rem;border-radius:12px;transition:.22s;
+  }
+  .btn-primary{background:var(--blue);color:#06121a}
+  .btn-primary:hover{box-shadow:0 0 28px rgba(0,229,255,.45);transform:translateY(-2px)}
+  .btn-ghost{border:1px solid var(--line-strong);color:var(--text);background:var(--surface)}
+  .btn-ghost:hover{border-color:var(--red);color:var(--red);box-shadow:0 0 20px rgba(255,59,48,.2)}
+  .hero-photo img{
+    width:100%;border-radius:22px;display:block;
+    border:1px solid var(--line-strong);
+    box-shadow:0 0 0 1px rgba(0,229,255,.12), 0 30px 90px -25px rgba(0,229,255,.28);
+  }
+
+  /* ================= DUAL IDENTITY ================= */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin:1.6rem 0}
+  .duo .id-card{padding:1.6rem 1.7rem;transition:.25s;position:relative;overflow:hidden}
+  .id-card .tag{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase}
+  .id-card h3{margin:.5rem 0 .5rem;font-size:1.25rem}
+  .id-card p{font-size:.9rem}
+  .id-card.tech .tag{color:var(--blue)}
+  .id-card.tech:hover{
+    border-color:rgba(0,229,255,.45);transform:translateY(-4px);
+    box-shadow:0 0 34px rgba(0,229,255,.16), inset 0 0 40px rgba(0,229,255,.03);
+  }
+  .id-card.combat .tag{color:var(--red)}
+  .id-card.combat:hover{
+    border-color:rgba(255,59,48,.5);transform:translateY(-4px);
+    box-shadow:0 0 34px rgba(255,59,48,.18), inset 0 0 40px rgba(255,59,48,.04);
+  }
+  .bridge{
+    text-align:center;font-family:var(--font-mono);font-size:.78rem;color:var(--muted);
+    margin:.4rem 0 0;letter-spacing:.05em;
+  }
+  .bridge span{color:var(--blue)} .bridge b{color:var(--red);font-weight:600}
+
+  /* ================= CARDS ================= */
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+  .card{padding:1.3rem 1.4rem;transition:.22s}
+  .card h4{font-size:.98rem;margin-bottom:.35rem}
+  .card p{font-size:.87rem}
+  .card .ico{font-size:1.35rem;display:block;margin-bottom:.5rem}
+  .card.tech:hover{
+    border-color:rgba(0,229,255,.4);transform:translateY(-3px);
+    box-shadow:0 0 26px rgba(0,229,255,.14);
+  }
+  .card.combat:hover{
+    border-color:rgba(255,59,48,.5);transform:translateY(-3px);
+    box-shadow:0 0 26px rgba(255,59,48,.16);
+  }
+
+  .callout{
+    background:var(--surface);backdrop-filter:blur(12px);
+    border:1px solid var(--line);border-left:3px solid var(--blue);
+    border-radius:var(--radius);padding:1.3rem 1.5rem;margin:1.2rem 0;
+  }
+  .callout.combat{border-left-color:var(--red)}
+  .callout p{color:var(--text)}
+  .callout a{color:var(--blue);text-decoration:none}
+  .callout a:hover{text-decoration:underline}
+
+  /* ================= ACCORDION ================= */
+  details{
+    background:var(--surface);backdrop-filter:blur(12px);
+    border:1px solid var(--line);border-radius:var(--radius);
+    margin:.8rem 0;overflow:hidden;transition:.22s;
+  }
+  details:hover{border-color:rgba(0,229,255,.35);box-shadow:0 0 22px rgba(0,229,255,.1)}
+  details summary{
+    cursor:pointer;font-weight:700;font-family:var(--font-head);
+    padding:1.05rem 1.4rem;list-style:none;
+    display:flex;align-items:center;gap:.6rem;
+  }
+  details summary::-webkit-details-marker{display:none}
+  details summary::after{
+    content:">";font-family:var(--font-mono);margin-left:auto;
+    color:var(--blue);transition:.2s;font-size:1rem;
+  }
+  details[open] summary::after{transform:rotate(90deg)}
+  details .body{padding:0 1.4rem 1.2rem}
+  details ul{padding-left:1.2rem}
+  details li{color:var(--muted);margin:.45rem 0;font-size:.9rem}
+  details li b{color:var(--text)}
+
+  .lvl{
+    font-family:var(--font-mono);font-size:.62rem;font-weight:600;letter-spacing:.06em;
+    text-transform:uppercase;padding:.18rem .55rem;border-radius:99px;margin-left:.6rem;white-space:nowrap;
+  }
+  .lvl-solid{background:var(--blue-dim);color:var(--blue);border:1px solid rgba(0,229,255,.35)}
+  .lvl-mid{background:rgba(255,255,255,.06);color:#c3cddd;border:1px solid rgba(255,255,255,.18)}
+  .lvl-ai{background:rgba(157,108,255,.12);color:#b79aff;border:1px solid rgba(157,108,255,.35)}
+
+  /* ================= PHOTOS ================= */
+  .photo{
+    width:100%;max-height:460px;object-fit:cover;border-radius:var(--radius);display:block;
+    border:1px solid var(--line-strong);margin:1.2rem 0;
+  }
+  .photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin:1.2rem 0}
+  .photo-grid img{width:100%;height:100%;max-height:420px;object-fit:cover;border-radius:var(--radius);border:1px solid var(--line-strong);display:block}
+  figure{margin:1.5rem 0}
+  figcaption{font-family:var(--font-mono);font-size:.74rem;color:var(--muted);margin-top:.55rem;text-align:center;letter-spacing:.05em}
+
+  /* ================= LISTS ================= */
+  .check-list{list-style:none}
+  .check-list li{padding:.35rem 0;color:var(--muted)}
+  .check-list li::before{content:"▸ ";color:var(--blue);font-weight:700;margin-right:.35rem}
+  .link-list{list-style:none}
+  .link-list li{margin:.5rem 0}
+  .link-list a{
+    color:var(--text);text-decoration:none;font-weight:600;font-size:.9rem;
+    display:flex;align-items:center;gap:.6rem;
+    background:var(--surface);backdrop-filter:blur(12px);
+    border:1px solid var(--line);border-radius:12px;
+    padding:.75rem 1.1rem;transition:.2s;
+  }
+  .link-list a:hover{border-color:rgba(0,229,255,.45);box-shadow:0 0 18px rgba(0,229,255,.12);transform:translateX(4px)}
+  .link-list a small{color:var(--muted);font-weight:400;margin-left:auto;font-family:var(--font-mono);font-size:.68rem}
+
+  /* ================= SOCIAL HUB ================= */
+  .hub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin-top:1.2rem}
+  .hub-btn{
+    text-decoration:none;display:block;
+    background:var(--surface);backdrop-filter:blur(12px);
+    border:1px solid var(--line);border-radius:14px;
+    padding:1.05rem 1.2rem;transition:.22s;position:relative;
+  }
+  .hub-btn .label{
+    font-family:var(--font-mono);font-weight:600;font-size:.86rem;color:var(--text);
+    display:block;
+  }
+  .hub-btn .label::before{content:"[ ";color:var(--muted)}
+  .hub-btn .label::after{content:" ]";color:var(--muted)}
+  .hub-btn .ctx{
+    display:block;font-family:var(--font-mono);font-size:.7rem;
+    letter-spacing:.06em;margin-top:.3rem;color:var(--muted);
+  }
+  .hub-btn .handle{display:block;font-size:.76rem;color:var(--muted);margin-top:.35rem;word-break:break-all}
+  .hub-btn.tech .ctx{color:var(--blue)}
+  .hub-btn.tech:hover{
+    border-color:rgba(0,229,255,.5);transform:translateY(-3px);
+    box-shadow:0 0 26px rgba(0,229,255,.16);
+  }
+  .hub-btn.combat .ctx{color:var(--red)}
+  .hub-btn.combat:hover{
+    border-color:rgba(255,59,48,.55);transform:translateY(-3px);
+    box-shadow:0 0 26px rgba(255,59,48,.2);
+  }
+
+  footer{
+    border-top:1px solid var(--line);margin-top:4.5rem;padding:2.2rem 0 3rem;
+    text-align:center;color:var(--muted);font-size:.82rem;font-family:var(--font-mono);
+  }
+  footer .sig{margin-top:.4rem;font-size:.72rem;opacity:.7}
+  footer .sig span{color:var(--blue)} footer .sig b{color:var(--red);font-weight:400}
+
+  hr.sep{border:none;border-top:1px solid var(--line);margin:3.5rem 0 0}
+
+  /* ================= LANG TOGGLE ================= */
+  [data-tr]{display:none!important}
+  html.tr [data-en]{display:none!important}
+  html.tr [data-tr]{display:revert!important}
+  /* elements whose custom display must survive the TR toggle */
+  html.tr .hub-btn .ctx[data-tr],
+  html.tr .hub-btn .handle[data-tr]{display:block!important}
+  html.tr .section-tag[data-tr]{display:inline-flex!important}
+  html.tr .btn[data-tr]{display:inline-block!important}
+  html.tr .status-pill span[data-tr]{display:inline!important}
+
+  @media(max-width:840px){
+    .hero{grid-template-columns:1fr;padding-top:2.6rem}
+    .grid-3,.grid-2,.duo{grid-template-columns:1fr}
+    .photo-grid{grid-template-columns:1fr}
+    .nav-links{display:none}
+    .lang-switch{margin-left:auto}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">ÖZGÜR<span class="x">_</span>MATİLOĞLU<span class="k">.</span></div>
+    <div class="nav-links">
+      <a href="#about" data-en>About</a><a href="#about" data-tr>Hakkında</a>
+      <a href="#research" data-en>Research</a><a href="#research" data-tr>Araştırmalar</a>
+      <a href="#projects" data-en>Projects</a><a href="#projects" data-tr>Projeler</a>
+      <a href="#content" data-en>Content</a><a href="#content" data-tr>İçerikler</a>
+      <a href="#fightensus" class="combat">Fightensus</a>
+      <a href="#contact" data-en>Contact</a><a href="#contact" data-tr>İletişim</a>
+    </div>
+    <div class="lang-switch">
+      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+      <button id="btn-tr" onclick="setLang('tr')">TR</button>
+    </div>
+  </div>
+</nav>
+
+<!-- Live status indicator -->
+<div class="status-pill">
+  <span class="dot"></span>
+  <span data-en>📍 Istanbul&nbsp;·&nbsp;💻 Focus: <b>EigenLayer &amp; GTM Strategy</b></span>
+  <span data-tr>📍 İstanbul&nbsp;·&nbsp;💻 Odak: <b>EigenLayer &amp; GTM Stratejisi</b></span>
+</div>
+
+<!-- ================= HERO ================= -->
+<header class="wrap hero" id="about">
+  <div>
+    <div class="terminal">
+      <span class="prompt">~$</span>
+      <span id="typewriter"></span>
+      <span class="cursor"></span>
+    </div>
+    <div class="role" data-en>&gt; WEB3 SOFTWARE PROJECTS &amp; BUSINESS DEVELOPMENT · <b>MUAY THAI TRAINER</b></div>
+    <div class="role" data-tr>&gt; WEB3 YAZILIM PROJELERİ &amp; İŞ GELİŞTİRME · <b>MUAY THAI ANTRENÖRÜ</b></div>
+    <h1>Özgür <span class="blue">Matiloğlu</span></h1>
+    <p data-en>Trying to bridge technical research and marketing execution in blockchain — still learning every day. Discipline comes from the ring.</p>
+    <p data-tr>Blokzincirde teknik araştırma ile pazarlama yürütümü arasında köprü kurmaya çalışıyorum — her gün öğrenmeye devam ediyorum. Disiplinin kaynağı ring.</p>
+    <div class="badges">
+      <span class="badge"><b style="color:var(--blue)">Founder &amp; President</b> · MEF Blockchain Club</span>
+      <span class="badge">⚡ EigenCloud Ambassador</span>
+      <span class="badge">🔥 Injective Ambassador</span>
+      <span class="badge">🌙 Midnight Ambassador</span>
+      <span class="badge">✨ Stellar Ambassador</span>
+      <span class="badge combat">🥊 Muay Thai 1st Degree Asst. Trainer</span>
+    </div>
+    <blockquote data-en>"I try to combine technical analysis with clear storytelling and go-to-market thinking."</blockquote>
+    <blockquote data-tr>"Teknik analizi anlaşılır hikaye anlatımı ve pazar odaklı düşünceyle birleştirmeye çalışıyorum."</blockquote>
+    <p data-en><b style="color:var(--text)">Vision:</b> Working towards becoming a solid blockchain researcher-marketer hybrid in Turkey.</p>
+    <p data-tr><b style="color:var(--text)">Vizyon:</b> Türkiye'de sağlam bir blokzincir araştırmacı-pazarlamacı hibriti olma yolunda ilerlemek.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://calendly.com/matilogluo-mef/30min" target="_blank" rel="noopener" data-en>📅 Schedule a Meeting</a>
+      <a class="btn btn-primary" href="https://calendly.com/matilogluo-mef/30min" target="_blank" rel="noopener" data-tr>📅 Toplantı Planla</a>
+      <a class="btn btn-ghost" href="#fightensus" data-en>🥊 Train With Me</a>
+      <a class="btn btn-ghost" href="#fightensus" data-tr>🥊 Benimle Antrenman Yap</a>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <img src="images/about.jpg" alt="Özgür Matiloğlu">
+  </div>
+</header>
+
+<!-- ================= DUAL IDENTITY ================= -->
+<div class="wrap">
+  <div class="duo">
+    <div class="id-card glass tech">
+      <span class="tag">⛓ chain://researcher</span>
+      <h3 data-en>Web3 Researcher &amp; Vibe Coder</h3>
+      <h3 data-tr>Web3 Araştırmacısı &amp; Vibe Coder</h3>
+      <p data-en>Ongoing study of Layer-2 scaling, restaking economics and consensus mechanisms. Content, community and GTM frameworks — plus products built by vibe coding with modern AI tools.</p>
+      <p data-tr>Layer-2 ölçeklendirme, restaking ekonomisi ve konsensüs mekanizmaları üzerine süregelen çalışmalar. İçerik, topluluk ve GTM çerçeveleri — artı modern AI araçlarıyla vibe coding ile üretilen ürünler.</p>
+    </div>
+    <div class="id-card glass combat">
+      <span class="tag">🥊 ring://trainer</span>
+      <h3 data-en>Muay Thai Trainer &amp; Digital Nomad</h3>
+      <h3 data-tr>Muay Thai Antrenörü &amp; Dijital Göçebe</h3>
+      <p data-en>1st Degree Assistant Trainer. The same discipline, strategy and resilience the ring demands carries straight into deep research work — one sharpens the other.</p>
+      <p data-tr>1. Kademe Yardımcı Antrenör. Ringin talep ettiği disiplin, strateji ve dayanıklılık doğrudan derin araştırma çalışmasına taşınıyor — biri diğerini keskinleştiriyor.</p>
+    </div>
+  </div>
+  <p class="bridge"><span>[ research ]</span> ── discipline ── <b>[ ring ]</b></p>
+
+  <div class="grid-3" style="margin-top:1.6rem">
+    <div class="card glass tech">
+      <span class="ico">🔬</span>
+      <h4 data-en>Technical Research</h4><h4 data-tr>Teknik Araştırma</h4>
+      <p data-en>Ongoing study of Layer-2 scaling, restaking economics and consensus mechanisms.</p>
+      <p data-tr>Layer-2 ölçeklendirme, restaking ekonomisi ve konsensüs mekanizmaları üzerine süregelen çalışmalar.</p>
+    </div>
+    <div class="card glass tech">
+      <span class="ico">📢</span>
+      <h4 data-en>Marketing Strategy</h4><h4 data-tr>Pazarlama Stratejisi</h4>
+      <p data-en>Content creation, community building, and GTM frameworks.</p>
+      <p data-tr>İçerik üretimi, topluluk oluşturma ve GTM çerçeveleri.</p>
+    </div>
+    <div class="card glass tech">
+      <span class="ico">🏛️</span>
+      <h4 data-en>Organizational Leadership</h4><h4 data-tr>Organizasyonel Liderlik</h4>
+      <p data-en>Growing MEF Blockchain Club to ~100 members.</p>
+      <p data-tr>MEF Blockchain Kulübü'nü ~100 üyeye büyütme.</p>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:1.2rem">
+    <p data-en><b>🎯 Current Focus:</b> EigenLayer ecosystem (ELIP-002, 006, 008), AVS development, verifiable compute, and expanding EigenCloud's presence in Turkey.</p>
+    <p data-tr><b>🎯 Mevcut Odak:</b> EigenLayer ekosistemi (ELIP-002, 006, 008), AVS geliştirme, doğrulanabilir hesaplama ve EigenCloud'un Türkiye'deki varlığını genişletme.</p>
+  </div>
+</div>
+
+<hr class="sep">
+
+<!-- ================= TECHNICAL RESEARCH ================= -->
+<section class="wrap" id="research">
+  <span class="section-tag" data-en>technical_research</span>
+  <span class="section-tag" data-tr>teknik_arastirmalar</span>
+  <h2 data-en>Learning &amp; Research Areas</h2>
+  <h2 data-tr>Öğrenme ve Araştırma Alanlarım</h2>
+
+  <div class="callout">
+    <p data-en><b>An honest note:</b> I know some of these areas genuinely well; others I can work through at a moderate level with the help of modern AI tools. The labels below show which is which.</p>
+    <p data-tr><b>Dürüst bir not:</b> Bu alanların bir kısmını gerçekten iyi biliyorum; bir kısmını ise modern AI araçlarının desteğiyle orta düzeyde uygulayabiliyorum. Aşağıdaki etiketler hangisinin hangisi olduğunu gösteriyor.</p>
+  </div>
+
+  <img class="photo" src="images/research-1.jpg" alt="Özgür Matiloğlu presenting technical research">
+
+  <details>
+    <summary><span data-en>📘 Blockchain Fundamentals <span class="lvl lvl-solid">Know it well</span></span><span data-tr>📘 Blokzincir Temelleri <span class="lvl lvl-solid">İyi biliyorum</span></span></summary>
+    <div class="body">
+      <ul data-en>
+        <li><b>HashCash &amp; Proof of Work mechanisms</b> — Understanding the foundation of Bitcoin's consensus</li>
+        <li><b>SegWit (Segregated Witness) optimization</b> — Transaction malleability fixes and block capacity improvements</li>
+        <li><b>Lightning Network payment channels</b> — Layer-2 micropayment solutions and routing algorithms</li>
+        <li><b>Gossip Protocol &amp; network propagation</b> — P2P communication and block propagation strategies</li>
+        <li><b>Byzantine Generals Problem &amp; fault tolerance</b> — Distributed consensus in adversarial environments</li>
+        <li><b>Hashgraph Consensus algorithm</b> — Asynchronous Byzantine Fault Tolerance (aBFT) implementation</li>
+        <li><b>Quadratic Voting &amp; Sharding strategies</b> — Governance mechanisms and horizontal scaling approaches</li>
+      </ul>
+      <ul data-tr>
+        <li><b>HashCash &amp; Proof of Work mekanizmaları</b> — Bitcoin'in konsensüsünün temellerini anlama</li>
+        <li><b>SegWit (Segregated Witness) optimizasyonu</b> — İşlem değiştirilebilirliği düzeltmeleri ve blok kapasitesi iyileştirmeleri</li>
+        <li><b>Lightning Network ödeme kanalları</b> — Katman-2 mikro ödeme çözümleri ve yönlendirme algoritmaları</li>
+        <li><b>Gossip Protokolü &amp; ağ yayılımı</b> — Eşler arası iletişim ve blok yayılım stratejileri</li>
+        <li><b>Bizans Generalleri Problemi &amp; hata toleransı</b> — Düşmanca ortamlarda dağıtık konsensüs</li>
+        <li><b>Hashgraph Konsensüs algoritması</b> — Asenkron Bizans Hata Toleransı (aBFT) uygulaması</li>
+        <li><b>Kare Oy ve Parçalama stratejileri</b> — Yönetişim mekanizmaları ve yatay ölçeklendirme yaklaşımları</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span data-en>📗 Layer-2 &amp; Restaking Ecosystem <span class="lvl lvl-solid">Know it well</span></span><span data-tr>📗 Katman-2 &amp; Restaking Ekosistemi <span class="lvl lvl-solid">İyi biliyorum</span></span></summary>
+    <div class="body">
+      <h3 data-en>EigenLayer Protocol Deep Dives:</h3>
+      <h3 data-tr>EigenLayer Protokol Derin İncelemeleri:</h3>
+      <ul data-en>
+        <li><b>ELIP-002: Slashing mechanisms and security guarantees</b> — Economic security modeling and penalty structures</li>
+        <li><b>ELIP-006: Token redistribution economics</b> — Incentive alignment and reward distribution mechanisms</li>
+        <li><b>ELIP-008: Multi-chain verification architecture</b> — Cross-chain security and validation frameworks</li>
+        <li><b>AVS (Actively Validated Services) design patterns</b> — Building decentralized services on shared security</li>
+        <li><b>Operator Sets coordination</b> — Validator management and delegation strategies</li>
+        <li><b>Data Availability (DA) solutions</b> — Ensuring data accessibility for rollups and Layer-2s</li>
+        <li><b>Verifiable Compute frameworks</b> — Zero-knowledge proofs and computational integrity</li>
+      </ul>
+      <ul data-tr>
+        <li><b>ELIP-002: Slashing mekanizmaları ve güvenlik garantileri</b> — Ekonomik güvenlik modellemesi ve ceza yapıları</li>
+        <li><b>ELIP-006: Token yeniden dağıtım ekonomisi</b> — Teşvik hizalaması ve ödül dağıtım mekanizmaları</li>
+        <li><b>ELIP-008: Çoklu zincir doğrulama mimarisi</b> — Zincirler arası güvenlik ve doğrulama çerçeveleri</li>
+        <li><b>AVS (Aktif Doğrulanan Servisler) tasarım kalıpları</b> — Paylaşılan güvenlik üzerinde merkeziyetsiz servisler inşa etmek</li>
+        <li><b>Operatör Setleri koordinasyonu</b> — Doğrulayıcı yönetimi ve delegasyon stratejileri</li>
+        <li><b>Veri Erişilebilirliği (DA) çözümleri</b> — Rollup'lar ve Katman-2'ler için veri erişilebilirliğini sağlamak</li>
+        <li><b>Doğrulanabilir Hesaplama çerçeveleri</b> — Sıfır bilgi ispatları ve hesaplama bütünlüğü</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span data-en>📙 Smart Contracts &amp; Development <span class="lvl lvl-ai">AI-assisted</span></span><span data-tr>📙 Akıllı Sözleşmeler &amp; Geliştirme <span class="lvl lvl-ai">AI destekli</span></span></summary>
+    <div class="body">
+      <ul data-en>
+        <li><b>Solidity programming &amp; best practices</b> — Writing secure and gas-optimized smart contracts</li>
+        <li><b>Remix IDE development workflow</b> — Testing, debugging, and deploying contracts</li>
+        <li><b>Git/GitHub version control</b> — Collaborative development and code management</li>
+        <li><b>CS50x foundations: C, Python, Algorithms</b> — Computer science fundamentals for blockchain development</li>
+        <li><b>Web3.js blockchain integrations</b> — Building dApps and frontend-blockchain connections</li>
+        <li><b>Etherscan analytics &amp; transaction analysis</b> — On-chain data analysis and blockchain forensics</li>
+      </ul>
+      <ul data-tr>
+        <li><b>Solidity programlama &amp; en iyi uygulamalar</b> — Güvenli ve gas-optimizeli sözleşmeler yazma</li>
+        <li><b>Remix IDE geliştirme akışı</b> — Sözleşmeleri test etme, hata ayıklama ve dağıtma</li>
+        <li><b>Git/GitHub sürüm kontrolü</b> — İşbirlikçi geliştirme ve kod yönetimi</li>
+        <li><b>CS50x temelleri: C, Python, Algoritmalar</b> — Blokzincir geliştirme için bilgisayar bilimi temelleri</li>
+        <li><b>Web3.js blokzincir entegrasyonları</b> — dApp'ler ve frontend-blokzincir bağlantıları</li>
+        <li><b>Etherscan analitiği &amp; işlem analizi</b> — Zincir üstü veri analizi ve blokzincir adli bilişimi</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span data-en>📕 Cryptoeconomics &amp; Game Theory <span class="lvl lvl-mid">Working knowledge</span></span><span data-tr>📕 Kriptoekonomi &amp; Oyun Teorisi <span class="lvl lvl-mid">Orta düzey</span></span></summary>
+    <div class="body">
+      <ul data-en>
+        <li><b>Tokenomics design &amp; analysis</b> — Token distribution, utility, and value capture mechanisms</li>
+        <li><b>DAO voting mechanisms</b> — Governance structures and decision-making frameworks</li>
+        <li><b>Nash Equilibrium in decentralized systems</b> — Strategic behavior and equilibrium analysis</li>
+        <li><b>Incentive alignment &amp; mechanism design</b> — Creating systems where rational behavior benefits the protocol</li>
+        <li><b>Market simulation &amp; economic modeling</b> — Predicting protocol behavior under various conditions</li>
+      </ul>
+      <ul data-tr>
+        <li><b>Tokenomik tasarım &amp; analiz</b> — Token dağıtımı, fayda ve değer yakalama mekanizmaları</li>
+        <li><b>DAO oylama mekanizmaları</b> — Yönetişim yapıları ve karar alma çerçeveleri</li>
+        <li><b>Merkeziyetsiz sistemlerde Nash Dengesi</b> — Stratejik davranış ve denge analizi</li>
+        <li><b>Teşvik hizalaması &amp; mekanizma tasarımı</b> — Rasyonel davranışın protokole fayda sağladığı sistemler oluşturma</li>
+        <li><b>Pazar simülasyonu &amp; ekonomik modelleme</b> — Farklı koşullarda protokol davranışını öngörme</li>
+      </ul>
+    </div>
+  </details>
+
+  <img class="photo" src="images/research-2.jpg" alt="Blockchain event">
+
+  <details>
+    <summary><span data-en>📔 Security &amp; Consensus <span class="lvl lvl-mid">Working knowledge</span></span><span data-tr>📔 Güvenlik &amp; Konsensüs <span class="lvl lvl-mid">Orta düzey</span></span></summary>
+    <div class="body">
+      <ul data-en>
+        <li><b>Byzantine Fault Tolerance (BFT)</b> — Consensus in the presence of malicious actors</li>
+        <li><b>Sybil Resistance strategies</b> — Preventing identity-based attacks on networks</li>
+        <li><b>Slashing conditions &amp; penalty mechanisms</b> — Economic deterrents for validator misbehavior</li>
+        <li><b>Merkle Trees &amp; data structures</b> — Efficient verification and storage optimization</li>
+        <li><b>Digital Signatures &amp; cryptographic hashing</b> — Authentication and data integrity fundamentals</li>
+      </ul>
+      <ul data-tr>
+        <li><b>Bizans Hata Toleransı (BFT)</b> — Kötücül aktörlerin varlığında konsensüs</li>
+        <li><b>Sybil Direnci stratejileri</b> — Ağlarda kimlik temelli saldırıların önlenmesi</li>
+        <li><b>Slashing koşulları &amp; ceza mekanizmaları</b> — Doğrulayıcı kötü davranışlarına ekonomik caydırıcılar</li>
+        <li><b>Merkle Ağaçları &amp; veri yapıları</b> — Verimli doğrulama ve depolama optimizasyonu</li>
+        <li><b>Dijital İmzalar &amp; kriptografik özetleme</b> — Kimlik doğrulama ve veri bütünlüğü temelleri</li>
+      </ul>
+    </div>
+  </details>
+</section>
+
+<hr class="sep">
+
+<!-- ================= PROJECTS ================= -->
+<section class="wrap" id="projects">
+  <span class="section-tag" data-en>projects_and_collabs</span>
+  <span class="section-tag" data-tr>projeler_ve_is_birlikleri</span>
+  <h2 data-en>Projects &amp; Collaborations</h2>
+  <h2 data-tr>Projeler ve İş Birlikleri</h2>
+
+  <h3>MEF Blockchain Club</h3>
+  <img class="photo" src="images/mef-club.jpg" alt="MEF Blockchain Club">
+  <div class="callout">
+    <p data-en><b>💡 Founder &amp; President | ~84 Members</b><br>
+    Transformed into "Project Club" status · Focus: Hackathons and AVS development<br>
+    🌐 <a href="https://mefblockchain.com/" target="_blank" rel="noopener">mefblockchain.com</a> ·
+    📸 <a href="https://www.instagram.com/mefblockchain/" target="_blank" rel="noopener">Instagram</a> ·
+    🐦 <a href="https://x.com/MEFblockchain" target="_blank" rel="noopener">X (Twitter)</a></p>
+    <p data-tr><b>💡 Kurucu &amp; Başkan | ~84 Üye</b><br>
+    "Proje Kulübü" statüsüne dönüştürüldü · Odak: Hackathonlar ve AVS geliştirme<br>
+    🌐 <a href="https://mefblockchain.com/" target="_blank" rel="noopener">mefblockchain.com</a> ·
+    📸 <a href="https://www.instagram.com/mefblockchain/" target="_blank" rel="noopener">Instagram</a> ·
+    🐦 <a href="https://x.com/MEFblockchain" target="_blank" rel="noopener">X (Twitter)</a></p>
+  </div>
+
+  <h3 data-en>Key Achievements</h3><h3 data-tr>Öne Çıkan Başarılar</h3>
+  <ul class="check-list" data-en>
+    <li>Organized technical workshops and panel discussions</li>
+    <li>Created structured learning paths (beginner to advanced)</li>
+    <li>Built collaborations across Turkey's blockchain ecosystem</li>
+  </ul>
+  <ul class="check-list" data-tr>
+    <li>Teknik atölyeler ve panel tartışmaları düzenlendi</li>
+    <li>Yapılandırılmış öğrenme yolları oluşturuldu (başlangıçtan ileri seviyeye)</li>
+    <li>Türkiye blokzincir ekosistemi genelinde iş birlikleri kuruldu</li>
+  </ul>
+
+  <h3 data-en>Key Collaborations</h3><h3 data-tr>Önemli İş Birlikleri</h3>
+  <div class="grid-3">
+    <div class="card glass tech"><h4>🤝 Paribu Hub</h4><p data-en>Technical infrastructure and community collaborations</p><p data-tr>Teknik altyapı ve topluluk desteği</p></div>
+    <div class="card glass tech"><h4>🤝 Node101</h4><p data-en>Technical infrastructure and validation network</p><p data-tr>Teknik altyapı ve doğrulama ağı</p></div>
+    <div class="card glass tech"><h4>🤝 Koza DAO</h4><p data-en>Community governance and DAO operations</p><p data-tr>Topluluk yönetişimi ve DAO operasyonları</p></div>
+    <div class="card glass tech"><h4>🤝 İTÜ Blockchain</h4><p data-en>Inter-university collaboration and research</p><p data-tr>Üniversiteler arası iş birliği ve araştırma</p></div>
+    <div class="card glass tech"><h4>🤝 YTÜ Blockchain</h4><p data-en>Joint educational programs and events</p><p data-tr>Ortak eğitim programları ve etkinlikler</p></div>
+    <div class="card glass tech"><h4>🤝 ODTÜ Blockchain</h4><p data-en>Academic research partnerships and workshops</p><p data-tr>Akademik araştırma ortaklıkları ve atölyeler</p></div>
+    <div class="card glass tech"><h4>🤝 Overblock</h4><p data-en>Blockchain analytics and data intelligence</p><p data-tr>Blokzincir analitiği ve veri zekası</p></div>
+    <div class="card glass tech"><h4>🤝 CryptoPyramid</h4><p data-en>Crypto investment and marketing community, financial services</p><p data-tr>Kripto yatırım ve pazarlama topluluğu, finansal hizmetler</p></div>
+    <div class="card glass tech"><h4>🤝 Altcointurk</h4><p data-en>Market insights and Turkish crypto community</p><p data-tr>Pazar içgörüleri ve Türkiye kripto topluluğu</p></div>
+    <div class="card glass tech"><h4>🤝 Moda Palas</h4><p data-en>Event hosting and community space</p><p data-tr>Etkinlik düzenleme ve topluluk alanı</p></div>
+  </div>
+
+  <h3 data-en>Major Projects</h3><h3 data-tr>Büyük Projeler</h3>
+  <img class="photo" src="images/noir-hackathon.jpg" alt="Noir Hackathon">
+  <details>
+    <summary><span data-en>🔷 Noir Hackathon</span><span data-tr>🔷 Noir Hackathon</span></summary>
+    <div class="body">
+      <p data-en>Zero-knowledge proof focused hackathon bringing together developers to explore privacy-preserving technologies.</p>
+      <p data-tr>Geliştiricileri bir araya getirerek mahremiyeti koruyan teknolojileri keşfetmeye odaklanan sıfır bilgi ispat hackathon'u.</p>
+      <ul data-en>
+        <li>Zero-knowledge circuit design</li>
+        <li>Privacy-preserving application development</li>
+        <li>Developer education and community building</li>
+      </ul>
+      <ul data-tr>
+        <li>Sıfır bilgi devre tasarımı</li>
+        <li>Mahremiyeti koruyan uygulama geliştirme</li>
+        <li>Geliştirici eğitimi ve topluluk oluşturma</li>
+      </ul>
+    </div>
+  </details>
+
+  <figure>
+    <img class="photo" src="images/mef-runners.jpg" alt="MEF Runners" style="margin:0">
+    <figcaption data-en>MEF Runners — President</figcaption>
+    <figcaption data-tr>MEF Runners — Başkan</figcaption>
+  </figure>
+
+  <h3 data-en>Ambassador Roles</h3><h3 data-tr>Elçilik Rollerim</h3>
+  <img class="photo" src="images/ambassador.jpg" alt="Ambassador roles">
+  <div class="callout">
+    <p data-en><b>⚡ EigenCloud Ambassador (Turkey)</b><br>Leading Turkish expansion efforts, content creation, and community building for EigenCloud's verifiable AI infrastructure.</p>
+    <p data-tr><b>⚡ EigenCloud Elçisi (Türkiye)</b><br>EigenCloud'un doğrulanabilir AI altyapısı için Türkiye genişlemesine liderlik, içerik üretimi ve topluluk oluşturma.</p>
+  </div>
+
+  <h3>Arkhaus</h3>
+  <img class="photo" src="images/arkhaus.jpg" alt="Arkhaus">
+  <div class="callout">
+    <p data-en><b>⚡ EigenCloud Ambassador (Turkey)</b><br>Evangelizing restaking technology, organizing meetups, and facilitating AVS development in Turkey.</p>
+    <p data-tr><b>⚡ EigenCloud Elçisi (Türkiye)</b><br>Restaking teknolojisini yaygınlaştırma, buluşmalar düzenleme ve Türkiye'de AVS geliştirmeyi kolaylaştırma.</p>
+  </div>
+  <img class="photo" src="images/eigencloud-2.jpg" alt="EigenCloud event">
+
+  <div class="photo-grid">
+    <figure style="margin:0">
+      <img src="images/midnight.jpg" alt="Midnight Ambassador">
+      <figcaption data-en>Midnight Ambassador</figcaption>
+      <figcaption data-tr>Midnight Elçiliği</figcaption>
+    </figure>
+    <figure style="margin:0">
+      <img src="images/algorand.jpg" alt="Algorand Hackathon">
+      <figcaption data-en>Algorand Hackathon</figcaption>
+      <figcaption data-tr>Algorand Hackathonu</figcaption>
+    </figure>
+  </div>
+
+  <h3 data-en>Göztepe İhsan Kurşunoğlu High School Presentation</h3>
+  <h3 data-tr>Göztepe İhsan Kurşunoğlu Lisesi Sunumum</h3>
+  <div class="photo-grid">
+    <img src="images/highschool-1.jpg" alt="High school presentation 1">
+    <img src="images/highschool-2.jpg" alt="High school presentation 2">
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ================= CONTENT LIBRARY ================= -->
+<section class="wrap" id="content">
+  <span class="section-tag" data-en>content_library</span>
+  <span class="section-tag" data-tr>icerik_arsivi</span>
+  <h2 data-en>Content Library</h2>
+  <h2 data-tr>İçerik Arşivi</h2>
+  <p data-en>All the content I've created and participated in — video, written, events, and marketing analysis. Languages: English &amp; Turkish. Topics: EigenLayer, Restaking, Layer-2, Consensus Mechanisms, DAO Governance, Cryptoeconomic Design, Marketing Analysis.</p>
+  <p data-tr>Oluşturduğum ve katıldığım tüm içerikler — video, yazılı, etkinlikler ve pazarlama analizi. Diller: İngilizce ve Türkçe. Konular: EigenLayer, Restaking, Katman-2, Konsensüs Mekanizmaları, DAO Yönetişimi, Kriptoekonomik Tasarım, Pazarlama Analizi.</p>
+
+  <img class="photo" src="images/content-library.jpg" alt="Speaking at an event">
+
+  <div class="grid-2">
+    <div>
+      <h3 data-en>📹 Video Content</h3><h3 data-tr>📹 Video İçerikler</h3>
+      <ul class="link-list">
+        <li><a href="https://www.youtube.com/watch?v=AFCWNBIoBcU&t=288s" target="_blank" rel="noopener">▶ Stellar X402 <small>YOUTUBE</small></a></li>
+        <li><a href="https://www.youtube.com/watch?v=xHpYszRRTAw&t=297s" target="_blank" rel="noopener">▶ SUI Marketing Analysis <small>YOUTUBE</small></a></li>
+        <li><a href="https://www.youtube.com/watch?v=mpfnwuAuYDY&t=40s" target="_blank" rel="noopener">▶ Presentation <small>YOUTUBE</small></a></li>
+        <li><a href="https://www.youtube.com/watch?v=qbM9ZwbfqSM&t=143s" target="_blank" rel="noopener">▶ BRC 2.0 Marketing Analysis <small>YOUTUBE</small></a></li>
+        <li><a href="https://www.youtube.com/watch?v=4mFaF1fwSHM&t=551s" target="_blank" rel="noopener">▶ EigenLayer 101 <small>YOUTUBE</small></a></li>
+        <li><a href="https://www.youtube.com/watch?v=NOgfz86EMQM&t=623s" target="_blank" rel="noopener">▶ Bitcoin Layer 2 <small>YOUTUBE</small></a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 data-en>✍️ Written Content</h3><h3 data-tr>✍️ Yazılı İçerikler</h3>
+      <ul class="link-list">
+        <li><a href="https://www.linkedin.com/pulse/from-degree-career-rethinking-employment-postmodern-era-matiloglu-jtxmf/" target="_blank" rel="noopener">✎ Marketing — Rethinking Employment <small>LINKEDIN</small></a></li>
+        <li><a href="https://www.linkedin.com/pulse/eigenlayer-redistribution-ozgur-matiloglu-8nyvf/" target="_blank" rel="noopener">✎ EigenLayer Redistribution <small>LINKEDIN</small></a></li>
+        <li><a href="https://www.linkedin.com/pulse/being-gamer-investor-ozgur-matiloglu-jqk3f/" target="_blank" rel="noopener">✎ Being a Gamer Investor <small>LINKEDIN</small></a></li>
+        <li><a href="https://medium.com/@zgrmatilolu/eip-1559-base-fee-priority-tip-ve-mev-anlamas%C4%B1-zor-anlatmas%C4%B1-keyifli-bir-konu-59de6a12ca5c" target="_blank" rel="noopener">✎ EIP-1559: Base Fee, Priority Tip &amp; MEV <small>MEDIUM</small></a></li>
+        <li><a href="https://medium.com/@zgrmatilolu/tokenizasyon-yeni-paradigman%C4%B1n-e%C5%9Fi%C4%9Finde-32413f70022c" target="_blank" rel="noopener">✎ Tokenization — On the Edge of a New Paradigm <small>MEDIUM</small></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ================= FIGHTENSUS ================= -->
+<section class="wrap" id="fightensus">
+  <span class="section-tag combat" data-en>personal_brand</span>
+  <span class="section-tag combat" data-tr>kisisel_marka</span>
+  <h2>Fightensus <span style="color:var(--red)">🥊</span></h2>
+  <img class="photo" src="images/fightensus.jpg" alt="Fightensus">
+  <div class="callout combat">
+    <p data-en><b>Fightensus</b> — Where blockchain meets the kickboxing ring · <b>Muay Thai 1st Degree Assistant Trainer</b></p>
+    <p data-tr><b>Fightensus</b> — Blokzincirin kickboks ringiyle buluştuğu yer · <b>Muay Thai 1. Kademe Yardımcı Antrenör</b></p>
+  </div>
+  <h3 data-en>Philosophy</h3><h3 data-tr>Felsefe</h3>
+  <p data-en>Just as boxing requires discipline, strategy, resilience, and focus — blockchain research demands the same qualities. Fightensus represents the synthesis of physical and mental performance optimization.</p>
+  <p data-tr>Boksun gerektirdiği disiplin, strateji, dayanıklılık ve odak — blokzincir araştırması da aynı nitelikleri talep eder. Fightensus, fiziksel ve zihinsel performans optimizasyonunun sentezini temsil eder.</p>
+  <div class="grid-2" style="margin-top:1.2rem">
+    <div class="card glass combat"><span class="ico">🥊</span><p data-en><b style="color:var(--text)">Boxing training routines</b> applied to productivity</p><p data-tr><b style="color:var(--text)">Verimliliğe uygulanan</b> boks antrenman rutinleri</p></div>
+    <div class="card glass combat"><span class="ico">💻</span><p data-en><b style="color:var(--text)">Balancing deep technical work</b> with physical wellness</p><p data-tr><b style="color:var(--text)">Derin teknik çalışmayı</b> fiziksel zindelikle dengeleme</p></div>
+    <div class="card glass combat"><span class="ico">🧠</span><p data-en><b style="color:var(--text)">Mental clarity</b> through movement and discipline</p><p data-tr><b style="color:var(--text)">Hareket ve disiplin yoluyla</b> zihinsel berraklık</p></div>
+    <div class="card glass combat"><span class="ico">⚡</span><p data-en><b style="color:var(--text)">Peak performance strategies</b> for Web3 professionals</p><p data-tr><b style="color:var(--text)">Web3 profesyonelleri için</b> zirve performans stratejileri</p></div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ================= SOCIAL HUB / CONTACT ================= -->
+<section class="wrap" id="contact">
+  <span class="section-tag" data-en>social_hub</span>
+  <span class="section-tag" data-tr>sosyal_hub</span>
+  <h2 data-en>Digital Presence</h2>
+  <h2 data-tr>Dijital Varlığım</h2>
+  <div class="hub-grid">
+    <a class="hub-btn tech" href="https://x.com/fightensus_eth" target="_blank" rel="noopener">
+      <span class="label">X</span>
+      <span class="ctx" data-en>/ BLOCKCHAIN RESEARCH</span><span class="ctx" data-tr>/ BLOKZİNCİR ARAŞTIRMASI</span>
+      <span class="handle">@fightensus_eth</span>
+    </a>
+    <a class="hub-btn combat" href="https://www.instagram.com/fightensus/" target="_blank" rel="noopener">
+      <span class="label">INSTAGRAM</span>
+      <span class="ctx" data-en>/ MUAY THAI TRAINING</span><span class="ctx" data-tr>/ MUAY THAI ANTRENMANI</span>
+      <span class="handle">@fightensus</span>
+    </a>
+    <a class="hub-btn tech" href="https://www.linkedin.com/in/ozgurmatiloglu/" target="_blank" rel="noopener">
+      <span class="label">LINKEDIN</span>
+      <span class="ctx" data-en>/ PROFESSIONAL NETWORK</span><span class="ctx" data-tr>/ PROFESYONEL AĞ</span>
+      <span class="handle">in/ozgurmatiloglu</span>
+    </a>
+    <a class="hub-btn tech" href="https://www.youtube.com/@ozgurmatiloglu" target="_blank" rel="noopener">
+      <span class="label">YOUTUBE</span>
+      <span class="ctx" data-en>/ RESEARCH &amp; ANALYSIS VIDEOS</span><span class="ctx" data-tr>/ ARAŞTIRMA &amp; ANALİZ VİDEOLARI</span>
+      <span class="handle">@ozgurmatiloglu</span>
+    </a>
+    <a class="hub-btn tech" href="https://medium.com/@zgrmatilolu" target="_blank" rel="noopener">
+      <span class="label">MEDIUM</span>
+      <span class="ctx" data-en>/ DEEP-DIVE ARTICLES</span><span class="ctx" data-tr>/ DERİN İNCELEME YAZILARI</span>
+      <span class="handle">@zgrmatilolu</span>
+    </a>
+    <a class="hub-btn tech" href="mailto:matilist51@gmail.com">
+      <span class="label">EMAIL</span>
+      <span class="ctx" data-en>/ DIRECT CONTACT</span><span class="ctx" data-tr>/ DOĞRUDAN İLETİŞİM</span>
+      <span class="handle">matilist51@gmail.com</span>
+    </a>
+    <a class="hub-btn tech" href="https://claude.ai/public/artifacts/711bdc7a-b5ad-44e4-95b9-ef58feefbf8b" target="_blank" rel="noopener">
+      <span class="label">RESEARCH</span>
+      <span class="ctx" data-en>/ RESEARCH PORTFOLIO</span><span class="ctx" data-tr>/ ARAŞTIRMA PORTFÖYÜ</span>
+      <span class="handle" data-en>View my research work</span><span class="handle" data-tr>Araştırma işlerimi görüntüle</span>
+    </a>
+    <a class="hub-btn tech" href="https://calendly.com/matilogluo-mef/30min" target="_blank" rel="noopener">
+      <span class="label">CALENDLY</span>
+      <span class="ctx" data-en>/ BOOK A 30-MIN CALL</span><span class="ctx" data-tr>/ 30 DK GÖRÜŞME PLANLA</span>
+      <span class="handle">calendly.com/matilogluo-mef</span>
+    </a>
+    <a class="hub-btn combat" href="https://www.instagram.com/fightensus/" target="_blank" rel="noopener">
+      <span class="label">TRAINING</span>
+      <span class="ctx" data-en>/ PERSONAL TRAINING</span><span class="ctx" data-tr>/ KİŞİSEL EĞİTİM</span>
+      <span class="handle">@fightensus</span>
+    </a>
+  </div>
+  <div class="badges" style="margin-top:1.6rem">
+    <span class="badge" data-en>📍 Istanbul, Turkey 🇹🇷</span>
+    <span class="badge" data-tr>📍 İstanbul, Türkiye 🇹🇷</span>
+    <span class="badge" data-en>🗣️ English &amp; Turkish</span>
+    <span class="badge" data-tr>🗣️ İngilizce ve Türkçe</span>
+    <span class="badge">⏰ GMT+3</span>
+  </div>
+</section>
+
+<footer>
+  <div data-en>© 2026 Özgür Matiloğlu — Built from my Notion portfolio</div>
+  <div data-tr>© 2026 Özgür Matiloğlu — Notion portfolyomdan derlenmiştir</div>
+  <div class="sig"><span>[ research ]</span> × <b>[ ring ]</b> — istanbul · gmt+3</div>
+</footer>
+
+<script>
+  // ---- language toggle ----
+  function setLang(l){
+    document.documentElement.classList.toggle('tr', l==='tr');
+    document.documentElement.lang = l;
+    document.getElementById('btn-en').classList.toggle('active', l==='en');
+    document.getElementById('btn-tr').classList.toggle('active', l==='tr');
+    try{localStorage.setItem('lang', l);}catch(e){}
+  }
+  try{
+    var saved = localStorage.getItem('lang');
+    if(saved) setLang(saved);
+    else if(navigator.language && navigator.language.toLowerCase().startsWith('tr')) setLang('tr');
+  }catch(e){}
+
+  // ---- terminal typewriter ----
+  (function(){
+    var lines = [
+      'status: researching ethereum l2s',
+      'status: vibe coding products',
+      'status: coaching at the dojo'
+    ];
+    var el = document.getElementById('typewriter');
+    var li = 0, ci = 0, deleting = false;
+    function tick(){
+      var line = lines[li];
+      if(!deleting){
+        ci++;
+        el.textContent = line.slice(0, ci);
+        if(ci === line.length){ deleting = true; setTimeout(tick, 2200); return; }
+        setTimeout(tick, 45 + Math.random()*40);
+      }else{
+        ci--;
+        el.textContent = line.slice(0, ci);
+        if(ci === 0){ deleting = false; li = (li+1) % lines.length; setTimeout(tick, 400); return; }
+        setTimeout(tick, 22);
+      }
+    }
+    tick();
+  })();
+</script>
+</body>
+</html>
