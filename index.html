@@ -3,8 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Özgür Matiloğlu — Web3 Builder · BizDev Operator · Combat Sports Trainer</title>
-<meta name="description" content="Özgür Matiloğlu. Builder in Web3. Advisor & BizDev Operator. Trainer in Combat Sports. Istanbul.">
+<title>Özgür Matiloğlu — Web3 Researcher · Freelance BizDev Operator &amp; Advisor</title>
+<meta name="description" content="Özgür Matiloğlu. Web3 Researcher. Freelance BizDev Operator &amp; Advisor. Research log, engagement model, field work. Istanbul.">
+<link rel="canonical" href="https://gfreeman834.github.io/ozgur-portfolio/">
+<link rel="alternate" hreflang="en" href="https://gfreeman834.github.io/ozgur-portfolio/?lang=en">
+<link rel="alternate" hreflang="tr" href="https://gfreeman834.github.io/ozgur-portfolio/?lang=tr">
+<link rel="alternate" hreflang="x-default" href="https://gfreeman834.github.io/ozgur-portfolio/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
@@ -115,7 +119,7 @@
   h2{font-size:2.1rem;margin-bottom:1.3rem;text-transform:uppercase;letter-spacing:.01em}
   h3{font-size:1.1rem;margin:1.7rem 0 .7rem;text-transform:uppercase;letter-spacing:.03em}
 
-  /* ================= BOX BASE (sharp, tactical) ================= */
+  /* ================= BOX BASE ================= */
   .box{background:var(--surface);border:2px solid var(--line)}
   .box.tech{border-color:var(--line-cyan)}
   .box.combat{border-color:var(--line-red)}
@@ -144,7 +148,6 @@
   .hero h1 .l1{color:var(--text)}
   .hero h1 .l2{color:var(--cyan)}
   .hero h1 .l3{color:var(--cyan);opacity:.85}
-  .hero h1 .l4{color:var(--red)}
   .hero h1 span{display:block}
   .hero .sub{font-size:1rem;max-width:52ch}
   .badges{display:flex;flex-wrap:wrap;gap:.45rem;margin:1.2rem 0}
@@ -154,12 +157,6 @@
     padding:.3rem .6rem;transition:none;
   }
   .badge:hover{border-color:var(--cyan);color:var(--cyan)}
-  .badge.combat:hover{border-color:var(--red);color:var(--red)}
-  .creed{
-    border:2px solid var(--line);border-left:4px solid var(--cyan);
-    background:var(--surface);padding:.9rem 1.2rem;margin:1.2rem 0;
-    color:var(--text);font-weight:500;
-  }
   .cta-row{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.3rem}
   .btn{
     display:inline-block;text-decoration:none;font-weight:700;font-size:.85rem;
@@ -168,27 +165,22 @@
   }
   .btn-primary{background:var(--cyan);color:#03121a;box-shadow:4px 4px 0 rgba(0,230,255,.2)}
   .btn-primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(0,230,255,.3)}
-  .btn-ghost{border-color:var(--red);color:var(--red);background:transparent}
-  .btn-ghost:hover{background:var(--red);color:#fff;box-shadow:var(--shadow-red)}
   .hero-photo img{
     width:100%;display:block;
     border:2px solid var(--line-cyan);
     box-shadow:8px 8px 0 rgba(0,230,255,.12);
   }
 
-  /* ================= BENTO GRID ================= */
+  /* ================= BENTO ================= */
   .bento{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;margin:1.8rem 0 0}
   .bento .cell{padding:1.5rem 1.6rem}
   .cell-research{grid-column:span 7}
   .cell-bizdev{grid-column:span 5}
-  .cell-dojo{grid-column:span 8;position:relative;overflow:hidden}
-  .cell-stats{grid-column:span 4;display:grid;gap:1rem}
   .cell .tag{
     font-family:var(--font-mono);font-size:.66rem;font-weight:700;
     letter-spacing:.14em;text-transform:uppercase;
   }
   .cell.tech .tag{color:var(--cyan)}
-  .cell.combat .tag{color:var(--red)}
   .cell h3{margin:.55rem 0 .6rem;font-size:1.3rem}
   .cell p{font-size:.9rem}
   .ops-list{list-style:none;margin-top:.8rem}
@@ -197,55 +189,46 @@
     padding:.32rem 0;border-bottom:1px solid var(--line);
   }
   .ops-list li::before{content:"> ";color:var(--cyan);font-weight:700}
-  .dojo-word{
-    font-family:var(--font-head);font-weight:700;text-transform:uppercase;
-    font-size:clamp(2.4rem,6vw,4.2rem);line-height:.95;color:var(--red);
-    letter-spacing:-.02em;margin:.4rem 0 .8rem;
+  .model-block{margin-top:.9rem}
+  .model-block .k{
+    font-family:var(--font-mono);font-size:.66rem;font-weight:700;color:var(--cyan);
+    letter-spacing:.12em;text-transform:uppercase;display:block;margin-top:.8rem;
   }
-  .dojo-word small{display:block;font-size:.32em;color:var(--text);letter-spacing:.28em}
-  .fight-log{
-    display:inline-block;text-decoration:none;margin-top:1rem;
-    font-family:var(--font-mono);font-weight:700;font-size:.82rem;
-    color:var(--red);border:2px solid var(--red);
-    padding:.7rem 1.1rem;transition:none;
-  }
-  .fight-log:hover{background:var(--red);color:#fff;transform:translate(-3px,-3px);box-shadow:var(--shadow-red)}
-  .stat{padding:1.1rem 1.3rem}
-  .stat .num{font-family:var(--font-head);font-weight:700;font-size:1.9rem;color:var(--cyan);line-height:1.1}
-  .stat.combat .num{color:var(--red)}
-  .stat .lbl{font-family:var(--font-mono);font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
-  @media(max-width:900px){
-    .cell-research,.cell-bizdev,.cell-dojo,.cell-stats{grid-column:span 12}
-    .cell-stats{grid-template-columns:repeat(3,1fr)}
-  }
-  @media(max-width:640px){.cell-stats{grid-template-columns:1fr}}
-
-  /* ================= ACCORDION ================= */
-  details{
+  .model-block .v{font-size:.84rem;color:var(--text);display:block;margin-top:.15rem}
+  .meta-strip{
+    grid-column:span 12;
+    font-family:var(--font-mono);font-size:.7rem;color:var(--muted);
+    letter-spacing:.05em;padding:.8rem 1.2rem;
     background:var(--surface);border:2px solid var(--line);
-    margin:.7rem 0;transition:none;
   }
-  details:hover{border-color:var(--cyan)}
-  details summary{
-    cursor:pointer;font-weight:700;font-family:var(--font-head);
-    padding:1rem 1.3rem;list-style:none;
-    display:flex;align-items:center;gap:.6rem;
+  .meta-strip b{color:var(--text);font-weight:600}
+  @media(max-width:900px){
+    .cell-research,.cell-bizdev{grid-column:span 12}
   }
-  details summary::-webkit-details-marker{display:none}
-  details summary::after{content:"+";font-family:var(--font-mono);margin-left:auto;color:var(--cyan);font-size:1.1rem;font-weight:700}
-  details[open] summary::after{content:"-"}
-  details .body{padding:0 1.3rem 1.1rem}
-  details ul{padding-left:1.1rem}
-  details li{color:var(--muted);margin:.4rem 0;font-size:.9rem}
-  details li b{color:var(--text)}
 
-  .lvl{
-    font-family:var(--font-mono);font-size:.6rem;font-weight:700;letter-spacing:.06em;
-    text-transform:uppercase;padding:.15rem .5rem;margin-left:.6rem;white-space:nowrap;
+  /* ================= RESEARCH LOG ================= */
+  .log-list{list-style:none}
+  .log-list li{margin:.45rem 0}
+  .log-list a{
+    color:var(--text);text-decoration:none;font-weight:600;font-size:.88rem;
+    display:flex;align-items:center;gap:.7rem;
+    background:var(--surface);border:2px solid var(--line);
+    padding:.65rem 1rem;transition:none;
   }
-  .lvl-solid{color:#03121a;background:var(--cyan)}
-  .lvl-mid{color:var(--text);border:1px solid var(--line);background:transparent}
-  .lvl-ai{color:#fff;background:#6B4BD6}
+  .log-list a:hover{transform:translate(-3px,-3px);box-shadow:var(--shadow-cyan);border-color:var(--cyan)}
+  .log-list .idx{font-family:var(--font-mono);font-size:.7rem;font-weight:700;color:var(--cyan);flex-shrink:0}
+  .log-list .fmt{
+    margin-left:auto;flex-shrink:0;
+    font-family:var(--font-mono);font-size:.66rem;font-weight:700;color:#03121a;
+    background:var(--cyan);padding:.12rem .5rem;
+  }
+  .log-list .src{font-family:var(--font-mono);font-size:.64rem;color:var(--muted);flex-shrink:0}
+  .stack-line{
+    font-family:var(--font-mono);font-size:.74rem;color:var(--muted);line-height:1.9;
+    background:var(--surface);border:2px solid var(--line);border-left:4px solid var(--cyan);
+    padding:1rem 1.2rem;margin:1.4rem 0;
+  }
+  .stack-line b{color:var(--text);font-weight:600}
 
   .callout{
     background:var(--surface);border:2px solid var(--line);border-left:4px solid var(--cyan);
@@ -255,6 +238,10 @@
   .callout p{color:var(--text)}
   .callout a{color:var(--cyan);text-decoration:none}
   .callout a:hover{background:var(--cyan);color:#03121a}
+  .callout .mono-h{
+    font-family:var(--font-mono);font-size:.7rem;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:.5rem;
+  }
 
   /* ================= GRIDS / PHOTOS ================= */
   .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
@@ -262,7 +249,6 @@
   .card{padding:1.2rem 1.3rem}
   .card h4{font-size:.95rem;margin-bottom:.3rem}
   .card p{font-size:.85rem}
-  .card .ico{font-size:1.25rem;display:block;margin-bottom:.45rem}
 
   .photo{
     width:100%;max-height:460px;object-fit:cover;display:block;
@@ -276,16 +262,19 @@
   .check-list{list-style:none}
   .check-list li{padding:.32rem 0;color:var(--muted)}
   .check-list li::before{content:"■ ";color:var(--cyan);margin-right:.35rem;font-size:.7em}
-  .link-list{list-style:none}
-  .link-list li{margin:.5rem 0}
-  .link-list a{
-    color:var(--text);text-decoration:none;font-weight:600;font-size:.88rem;
-    display:flex;align-items:center;gap:.6rem;
-    background:var(--surface);border:2px solid var(--line);
-    padding:.7rem 1rem;transition:none;
+
+  /* ================= DOJO (compact) ================= */
+  .dojo-card{padding:1.5rem 1.7rem;max-width:640px}
+  .dojo-card .tag{font-family:var(--font-mono);font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+  .dojo-card h3{margin:.5rem 0 .4rem}
+  .dojo-card .cert{font-family:var(--font-mono);font-size:.74rem;color:var(--text)}
+  .fight-log{
+    display:inline-block;text-decoration:none;margin-top:1rem;
+    font-family:var(--font-mono);font-weight:700;font-size:.82rem;
+    color:var(--red);border:2px solid var(--red);
+    padding:.7rem 1.1rem;transition:none;
   }
-  .link-list a:hover{transform:translate(-3px,-3px);box-shadow:var(--shadow-cyan);border-color:var(--cyan)}
-  .link-list a small{color:var(--muted);font-weight:400;margin-left:auto;font-family:var(--font-mono);font-size:.65rem}
+  .fight-log:hover{background:var(--red);color:#fff;transform:translate(-3px,-3px);box-shadow:var(--shadow-red)}
 
   /* ================= SOCIAL HUB ================= */
   .hub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin-top:1.2rem}
@@ -308,8 +297,6 @@
     border-top:2px solid var(--line);margin-top:4.2rem;padding:2rem 0 2.8rem;
     text-align:center;color:var(--muted);font-size:.78rem;font-family:var(--font-mono);
   }
-  footer .sig{margin-top:.4rem;font-size:.7rem;opacity:.75}
-  footer .sig span{color:var(--cyan)} footer .sig b{color:var(--red);font-weight:400}
 
   hr.sep{border:none;border-top:2px solid var(--line);margin:3.4rem 0 0}
 
@@ -325,6 +312,8 @@
   html.tr .hero h1 span[data-tr]{display:block!important}
   html.tr .ops-list[data-tr]{display:block!important}
   html.tr .fight-log[data-tr]{display:inline-block!important}
+  html.tr .model-block .v[data-tr]{display:block!important}
+  html.tr .log-list .fmt[data-tr]{display:inline-block!important}
 
   @media(max-width:840px){
     .hero{grid-template-columns:1fr;padding-top:2.4rem}
@@ -344,9 +333,8 @@
       <a href="#about" data-en>About</a><a href="#about" data-tr>Hakkında</a>
       <a href="#research" data-en>Research</a><a href="#research" data-tr>Araştırma</a>
       <a href="#projects" data-en>Field Work</a><a href="#projects" data-tr>Saha</a>
-      <a href="#content" data-en>Output</a><a href="#content" data-tr>Üretim</a>
-      <a href="#dojo" class="combat">Dojo</a>
       <a href="#contact" data-en>Signals</a><a href="#contact" data-tr>Sinyal</a>
+      <a href="#dojo" class="combat">Dojo</a>
     </div>
     <div class="lang-switch">
       <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
@@ -358,8 +346,8 @@
 <!-- Live status widget -->
 <div class="status-pill">
   <span class="dot"></span>
-  <span data-en>📍 Istanbul&nbsp;|&nbsp;🥊 Status: <b>GTM Execution / Heavy Bags</b></span>
-  <span data-tr>📍 İstanbul&nbsp;|&nbsp;🥊 Durum: <b>GTM Yürütme / Ağır Torba</b></span>
+  <span data-en>📍 Istanbul&nbsp;|&nbsp;Status: <b>GTM Architecture &amp; Research</b></span>
+  <span data-tr>📍 İstanbul&nbsp;|&nbsp;Durum: <b>GTM Mimarisi &amp; Araştırma</b></span>
 </div>
 
 <!-- ================= HERO ================= -->
@@ -372,27 +360,21 @@
     </div>
     <h1>
       <span class="l1">Özgür Matiloğlu.</span>
-      <span class="l2" data-en>Builder in Web3.</span><span class="l2" data-tr>Web3'te üretici.</span>
-      <span class="l3" data-en>Advisor &amp; BizDev Operator.</span><span class="l3" data-tr>Danışman &amp; BizDev Operatörü.</span>
-      <span class="l4" data-en>Trainer in Combat Sports.</span><span class="l4" data-tr>Dövüş sporlarında antrenör.</span>
+      <span class="l2" data-en>Web3 Researcher.</span><span class="l2" data-tr>Web3 Araştırmacısı.</span>
+      <span class="l3" data-en>Freelance BizDev Operator &amp; Advisor.</span><span class="l3" data-tr>Freelance BizDev Operatörü &amp; Danışman.</span>
     </h1>
-    <p class="sub" data-en>Research on L2s and restaking. Freelance BizDev for Web3 teams. Heavy bags before deep work. Istanbul.</p>
-    <p class="sub" data-tr>L2 ve restaking üzerine araştırma. Web3 ekipleri için freelance BizDev. Derin çalışmadan önce ağır torba. İstanbul.</p>
+    <p class="sub" data-en>Research on L2s and restaking, published in two languages. Freelance business development for Web3 teams. Istanbul.</p>
+    <p class="sub" data-tr>L2 ve restaking üzerine iki dilde yayınlanan araştırma. Web3 ekipleri için freelance iş geliştirme. İstanbul.</p>
     <div class="badges">
       <span class="badge">MEF BLOCKCHAIN CLUB — FOUNDER &amp; PRESIDENT</span>
       <span class="badge">EIGENCLOUD AMB.</span>
       <span class="badge">INJECTIVE AMB.</span>
       <span class="badge">MIDNIGHT AMB.</span>
       <span class="badge">STELLAR AMB.</span>
-      <span class="badge combat">MUAY THAI — 1ST DEGREE ASST. TRAINER</span>
     </div>
-    <div class="creed" data-en>Some of this I know cold. Some I ship with AI at my side. All of it gets done.</div>
-    <div class="creed" data-tr>Bir kısmını gerçekten iyi bilirim. Bir kısmını AI desteğiyle çıkarırım. Hepsi teslim edilir.</div>
     <div class="cta-row">
       <a class="btn btn-primary" href="https://calendly.com/matilogluo-mef/30min" target="_blank" rel="noopener" data-en>Book 30 min</a>
       <a class="btn btn-primary" href="https://calendly.com/matilogluo-mef/30min" target="_blank" rel="noopener" data-tr>30 dk ayır</a>
-      <a class="btn btn-ghost" href="#dojo" data-en>🥊 Train with me</a>
-      <a class="btn btn-ghost" href="#dojo" data-tr>🥊 Antrenmana gel</a>
     </div>
   </div>
   <div class="hero-photo">
@@ -405,68 +387,43 @@
   <div class="bento">
 
     <div class="cell cell-research box tech snap tech">
-      <span class="tag">01 // RESEARCH &amp; WEB3 ARCHITECTURE</span>
+      <span class="tag">[01] RESEARCH &amp; WEB3 ARCHITECTURE</span>
       <h3 data-en>Protocols, line by line.</h3>
       <h3 data-tr>Protokoller, satır satır.</h3>
-      <p data-en>EigenLayer ELIP-002 / 006 / 008. AVS design. Restaking economics. Consensus mechanics. I read the specs, write the breakdowns, and present them on stage — from university halls to Anadolu high schools.</p>
-      <p data-tr>EigenLayer ELIP-002 / 006 / 008. AVS tasarımı. Restaking ekonomisi. Konsensüs mekanikleri. Spesifikasyonları okurum, analizini yazarım, sahnede anlatırım — üniversite salonlarından Anadolu liselerine.</p>
+      <p data-en>EigenLayer ELIP-002 / 006 / 008. AVS design. Restaking economics. Consensus mechanics. I read the specs, write the breakdowns, and present them on stage. Every claim below links to a published artifact.</p>
+      <p data-tr>EigenLayer ELIP-002 / 006 / 008. AVS tasarımı. Restaking ekonomisi. Konsensüs mekanikleri. Spesifikasyonları okurum, analizini yazarım, sahnede anlatırım. Aşağıdaki her iddia yayınlanmış bir çıktıya bağlanır.</p>
       <ul class="ops-list" data-en>
         <li>current focus: EigenCloud expansion in Turkey</li>
         <li>verifiable compute + AVS development</li>
-        <li>5 ambassador seats: Eigen, Injective, Midnight, Stellar</li>
+        <li>ambassador seats: Eigen, Injective, Midnight, Stellar</li>
       </ul>
       <ul class="ops-list" data-tr>
         <li>güncel odak: EigenCloud'un Türkiye genişlemesi</li>
         <li>doğrulanabilir hesaplama + AVS geliştirme</li>
-        <li>5 elçilik: Eigen, Injective, Midnight, Stellar</li>
+        <li>elçilikler: Eigen, Injective, Midnight, Stellar</li>
       </ul>
     </div>
 
     <div class="cell cell-bizdev box tech snap tech">
-      <span class="tag">02 // ADVISORY &amp; FREELANCE BIZDEV OPS</span>
+      <span class="tag">[02] ENGAGEMENT MODEL — FREELANCE BIZDEV</span>
       <h3 data-en>Pipeline, not promises.</h3>
       <h3 data-tr>Vaat değil, pipeline.</h3>
-      <p data-en>Advising Web3 projects and executing freelance business development. Metrics and action:</p>
-      <p data-tr>Web3 projelerine danışmanlık, freelance iş geliştirme yürütme. Metrik ve aksiyon:</p>
-      <ul class="ops-list" data-en>
-        <li>track MRR, find the leak</li>
-        <li>solve customer churn at the product level</li>
-        <li>build strategic partnerships that close</li>
-        <li>design go-to-market that ships on a date</li>
-      </ul>
-      <ul class="ops-list" data-tr>
-        <li>MRR'ı takip et, sızıntıyı bul</li>
-        <li>müşteri kaybını ürün seviyesinde çöz</li>
-        <li>kapanan stratejik ortaklıklar kur</li>
-        <li>tarihe bağlı go-to-market tasarla</li>
-      </ul>
+      <div class="model-block">
+        <span class="k">Scope</span>
+        <span class="v" data-en>Pipeline build, outreach systems, Stripe/MRR instrumentation, churn diagnosis, partnership execution.</span>
+        <span class="v" data-tr>Pipeline kurulumu, outreach sistemleri, Stripe/MRR enstrümantasyonu, churn teşhisi, ortaklık yürütme.</span>
+        <span class="k">Process</span>
+        <span class="v" data-en>Week 1: audit. Weeks 2-4: pipeline build. Ongoing: execution with weekly metric reporting.</span>
+        <span class="v" data-tr>1. hafta: denetim. 2-4. hafta: pipeline kurulumu. Devamı: haftalık metrik raporuyla yürütme.</span>
+        <span class="k">Stack</span>
+        <span class="v" data-en>Apollo, Stripe, Notion, Claude-based automation pipelines.</span>
+        <span class="v" data-tr>Apollo, Stripe, Notion, Claude tabanlı otomasyon pipeline'ları.</span>
+      </div>
     </div>
 
-    <div class="cell cell-dojo box combat snap combat" >
-      <span class="tag">03 // THE DOJO</span>
-      <div class="dojo-word">Muay Thai<small data-en>Certified. On the bags daily.</small><small data-tr>Sertifikalı. Her gün torbada.</small></div>
-      <p data-en>Discipline, heavy bags, and high-intensity periodization. Certified training built on real sweat.</p>
-      <p data-tr>Disiplin, ağır torbalar, yüksek yoğunluklu periyotlama. Gerçek terle kurulmuş sertifikalı antrenörlük.</p>
-      <a class="fight-log" href="https://www.instagram.com/matilizm/" target="_blank" rel="noopener" data-en>[LOG // FIGHT INSTAGRAM -&gt; @matilizm]</a>
-      <a class="fight-log" href="https://www.instagram.com/matilizm/" target="_blank" rel="noopener" data-tr>[KAYIT // DÖVÜŞ INSTAGRAM -&gt; @matilizm]</a>
-    </div>
-
-    <div class="cell-stats">
-      <div class="stat box tech snap tech">
-        <div class="num">~84</div>
-        <div class="lbl" data-en>MEF Blockchain Club members</div>
-        <div class="lbl" data-tr>MEF Blockchain Club üyesi</div>
-      </div>
-      <div class="stat box tech snap tech">
-        <div class="num">11+</div>
-        <div class="lbl" data-en>Published videos &amp; articles</div>
-        <div class="lbl" data-tr>Yayınlanmış video &amp; yazı</div>
-      </div>
-      <div class="stat box combat snap combat">
-        <div class="num">1st</div>
-        <div class="lbl" data-en>Degree Asst. Trainer — Muay Thai</div>
-        <div class="lbl" data-tr>Kademe Yrd. Antrenör — Muay Thai</div>
-      </div>
+    <div class="meta-strip">
+      <span data-en><b>MEF BLOCKCHAIN:</b> 84 members, 20+ events&nbsp;&nbsp;/&nbsp;&nbsp;<b>PUBLISHED:</b> 11 artifacts EN+TR&nbsp;&nbsp;/&nbsp;&nbsp;<b>CERT:</b> Muay Thai 1st Degree (IFMA)</span>
+      <span data-tr><b>MEF BLOCKCHAIN:</b> 84 üye, 20+ etkinlik&nbsp;&nbsp;/&nbsp;&nbsp;<b>YAYIN:</b> 11 çıktı EN+TR&nbsp;&nbsp;/&nbsp;&nbsp;<b>SERTİFİKA:</b> Muay Thai 1. Kademe (IFMA)</span>
     </div>
 
   </div>
@@ -478,129 +435,45 @@
 <section class="wrap" id="research">
   <span class="section-tag" data-en>RESEARCH LOG</span>
   <span class="section-tag" data-tr>ARAŞTIRMA KAYDI</span>
-  <h2 data-en>What I study</h2>
-  <h2 data-tr>Ne çalışıyorum</h2>
-
-  <div class="callout">
-    <p data-en><b>Straight talk:</b> some of these areas I know genuinely well. Others I work through at a moderate level with modern AI tools. The labels say which is which.</p>
-    <p data-tr><b>Açık konuşalım:</b> bu alanların bir kısmını gerçekten iyi biliyorum. Bir kısmını modern AI araçlarıyla orta düzeyde yürütüyorum. Etiketler hangisinin hangisi olduğunu söylüyor.</p>
-  </div>
+  <h2 data-en>Research Log</h2>
+  <h2 data-tr>Araştırma Kaydı</h2>
+  <p data-en>An archive logs outputs, not intentions. Every entry below is published and linked.</p>
+  <p data-tr>Arşiv niyet değil, çıktı kaydeder. Aşağıdaki her kayıt yayınlanmış ve bağlantılıdır.</p>
 
   <img class="photo" src="images/research-1.jpg" alt="Özgür Matiloğlu presenting technical research">
 
-  <details>
-    <summary><span data-en>📘 Blockchain Fundamentals <span class="lvl lvl-solid">Know it well</span></span><span data-tr>📘 Blokzincir Temelleri <span class="lvl lvl-solid">İyi biliyorum</span></span></summary>
-    <div class="body">
-      <ul data-en>
-        <li><b>HashCash &amp; Proof of Work</b> — the base of Bitcoin's consensus</li>
-        <li><b>SegWit</b> — transaction malleability fixes, block capacity gains</li>
-        <li><b>Lightning Network</b> — payment channels and routing</li>
-        <li><b>Gossip Protocol</b> — P2P communication and block propagation</li>
-        <li><b>Byzantine Generals Problem</b> — consensus under adversarial conditions</li>
-        <li><b>Hashgraph</b> — asynchronous BFT in practice</li>
-        <li><b>Quadratic Voting &amp; Sharding</b> — governance and horizontal scaling</li>
-      </ul>
-      <ul data-tr>
-        <li><b>HashCash &amp; Proof of Work</b> — Bitcoin konsensüsünün temeli</li>
-        <li><b>SegWit</b> — işlem değiştirilebilirliği düzeltmeleri, blok kapasitesi kazanımları</li>
-        <li><b>Lightning Network</b> — ödeme kanalları ve yönlendirme</li>
-        <li><b>Gossip Protokolü</b> — P2P iletişim ve blok yayılımı</li>
-        <li><b>Bizans Generalleri Problemi</b> — düşmanca koşullarda konsensüs</li>
-        <li><b>Hashgraph</b> — pratikte asenkron BFT</li>
-        <li><b>Kare Oy &amp; Sharding</b> — yönetişim ve yatay ölçekleme</li>
-      </ul>
-    </div>
-  </details>
+  <h3 data-en>Protocol Research</h3><h3 data-tr>Protokol Araştırması</h3>
+  <ul class="log-list">
+    <li><a href="https://www.linkedin.com/pulse/eigenlayer-redistribution-ozgur-matiloglu-8nyvf/" target="_blank" rel="noopener"><span class="idx">R-01</span>EigenLayer Redistribution — ELIP-006 breakdown<span class="src">LINKEDIN</span><span class="fmt" data-en>READ</span><span class="fmt" data-tr>OKU</span></a></li>
+    <li><a href="https://medium.com/@zgrmatilolu/eip-1559-base-fee-priority-tip-ve-mev-anlamas%C4%B1-zor-anlatmas%C4%B1-keyifli-bir-konu-59de6a12ca5c" target="_blank" rel="noopener"><span class="idx">R-02</span>EIP-1559: Base Fee, Priority Tip &amp; MEV<span class="src">MEDIUM · TR</span><span class="fmt" data-en>READ</span><span class="fmt" data-tr>OKU</span></a></li>
+    <li><a href="https://medium.com/@zgrmatilolu/tokenizasyon-yeni-paradigman%C4%B1n-e%C5%9Fi%C4%9Finde-32413f70022c" target="_blank" rel="noopener"><span class="idx">R-03</span>Tokenization: On the Edge of a New Paradigm<span class="src">MEDIUM · TR</span><span class="fmt" data-en>READ</span><span class="fmt" data-tr>OKU</span></a></li>
+    <li><a href="https://www.youtube.com/watch?v=4mFaF1fwSHM&t=551s" target="_blank" rel="noopener"><span class="idx">R-04</span>EigenLayer 101<span class="src">YOUTUBE</span><span class="fmt" data-en>WATCH</span><span class="fmt" data-tr>İZLE</span></a></li>
+    <li><a href="https://www.youtube.com/watch?v=NOgfz86EMQM&t=623s" target="_blank" rel="noopener"><span class="idx">R-05</span>Bitcoin Layer 2<span class="src">YOUTUBE</span><span class="fmt" data-en>WATCH</span><span class="fmt" data-tr>İZLE</span></a></li>
+    <li><a href="https://www.youtube.com/watch?v=AFCWNBIoBcU&t=288s" target="_blank" rel="noopener"><span class="idx">R-06</span>Stellar x402<span class="src">YOUTUBE</span><span class="fmt" data-en>WATCH</span><span class="fmt" data-tr>İZLE</span></a></li>
+  </ul>
 
-  <details>
-    <summary><span data-en>📗 Layer-2 &amp; Restaking <span class="lvl lvl-solid">Know it well</span></span><span data-tr>📗 Katman-2 &amp; Restaking <span class="lvl lvl-solid">İyi biliyorum</span></span></summary>
-    <div class="body">
-      <h3 data-en>EigenLayer protocol notes:</h3>
-      <h3 data-tr>EigenLayer protokol notları:</h3>
-      <ul data-en>
-        <li><b>ELIP-002</b> — slashing mechanics, economic security modeling, penalty structures</li>
-        <li><b>ELIP-006</b> — token redistribution, incentive alignment, reward flows</li>
-        <li><b>ELIP-008</b> — multi-chain verification, cross-chain validation frameworks</li>
-        <li><b>AVS design patterns</b> — decentralized services on shared security</li>
-        <li><b>Operator Sets</b> — validator management and delegation</li>
-        <li><b>Data Availability</b> — keeping rollup data reachable</li>
-        <li><b>Verifiable Compute</b> — zero-knowledge proofs, computational integrity</li>
-      </ul>
-      <ul data-tr>
-        <li><b>ELIP-002</b> — slashing mekanikleri, ekonomik güvenlik modellemesi, ceza yapıları</li>
-        <li><b>ELIP-006</b> — token yeniden dağıtımı, teşvik hizalaması, ödül akışları</li>
-        <li><b>ELIP-008</b> — çoklu zincir doğrulama, zincirler arası doğrulama çerçeveleri</li>
-        <li><b>AVS tasarım kalıpları</b> — paylaşılan güvenlik üzerinde merkeziyetsiz servisler</li>
-        <li><b>Operatör Setleri</b> — doğrulayıcı yönetimi ve delegasyon</li>
-        <li><b>Veri Erişilebilirliği</b> — rollup verisini erişilebilir tutmak</li>
-        <li><b>Doğrulanabilir Hesaplama</b> — sıfır bilgi ispatları, hesaplama bütünlüğü</li>
-      </ul>
-    </div>
-  </details>
+  <h3 data-en>Marketing &amp; Ecosystem Analysis</h3><h3 data-tr>Pazarlama &amp; Ekosistem Analizi</h3>
+  <ul class="log-list">
+    <li><a href="https://www.youtube.com/watch?v=xHpYszRRTAw&t=297s" target="_blank" rel="noopener"><span class="idx">M-01</span>SUI Marketing Analysis<span class="src">YOUTUBE</span><span class="fmt" data-en>WATCH</span><span class="fmt" data-tr>İZLE</span></a></li>
+    <li><a href="https://www.youtube.com/watch?v=qbM9ZwbfqSM&t=143s" target="_blank" rel="noopener"><span class="idx">M-02</span>BRC 2.0 Marketing Analysis<span class="src">YOUTUBE</span><span class="fmt" data-en>WATCH</span><span class="fmt" data-tr>İZLE</span></a></li>
+    <li><a href="https://www.linkedin.com/pulse/from-degree-career-rethinking-employment-postmodern-era-matiloglu-jtxmf/" target="_blank" rel="noopener"><span class="idx">M-03</span>From Degree to Career: Rethinking Employment<span class="src">LINKEDIN</span><span class="fmt" data-en>READ</span><span class="fmt" data-tr>OKU</span></a></li>
+    <li><a href="https://www.linkedin.com/pulse/being-gamer-investor-ozgur-matiloglu-jqk3f/" target="_blank" rel="noopener"><span class="idx">M-04</span>Being a Gamer Investor<span class="src">LINKEDIN</span><span class="fmt" data-en>READ</span><span class="fmt" data-tr>OKU</span></a></li>
+    <li><a href="https://www.youtube.com/watch?v=mpfnwuAuYDY&t=40s" target="_blank" rel="noopener"><span class="idx">T-01</span><span data-en>Conference presentation</span><span data-tr>Konferans sunumu</span><span class="src">YOUTUBE</span><span class="fmt" data-en>WATCH</span><span class="fmt" data-tr>İZLE</span></a></li>
+  </ul>
 
-  <details>
-    <summary><span data-en>📙 Smart Contracts &amp; Development <span class="lvl lvl-ai">AI-assisted</span></span><span data-tr>📙 Akıllı Sözleşmeler &amp; Geliştirme <span class="lvl lvl-ai">AI destekli</span></span></summary>
-    <div class="body">
-      <ul data-en>
-        <li><b>Solidity</b> — secure, gas-aware contract writing</li>
-        <li><b>Remix IDE</b> — test, debug, deploy</li>
-        <li><b>Git/GitHub</b> — version control, collaboration</li>
-        <li><b>CS50x</b> — C, Python, algorithms</li>
-        <li><b>Web3.js</b> — dApp and frontend-chain wiring</li>
-        <li><b>Etherscan</b> — on-chain data and transaction analysis</li>
-      </ul>
-      <ul data-tr>
-        <li><b>Solidity</b> — güvenli, gas bilinçli sözleşme yazımı</li>
-        <li><b>Remix IDE</b> — test, hata ayıklama, dağıtım</li>
-        <li><b>Git/GitHub</b> — sürüm kontrolü, iş birliği</li>
-        <li><b>CS50x</b> — C, Python, algoritmalar</li>
-        <li><b>Web3.js</b> — dApp ve frontend-zincir bağlantısı</li>
-        <li><b>Etherscan</b> — zincir üstü veri ve işlem analizi</li>
-      </ul>
-    </div>
-  </details>
+  <div class="stack-line">
+    <b data-en>WORKING STACK //</b><b data-tr>ÇALIŞMA YIĞINI //</b>
+    <span data-en> PoW &amp; HashCash · SegWit · Lightning · gossip propagation · BFT/aBFT · Byzantine Generals · sharding · quadratic voting · Merkle trees · sybil resistance · slashing conditions · data availability · verifiable compute · operator sets · tokenomics · mechanism design · Nash equilibria · Solidity · Remix · Web3.js · Etherscan analytics · CS50x (C, Python, algorithms)</span>
+    <span data-tr> PoW &amp; HashCash · SegWit · Lightning · gossip yayılımı · BFT/aBFT · Bizans Generalleri · sharding · kare oy · Merkle ağaçları · sybil direnci · slashing koşulları · veri erişilebilirliği · doğrulanabilir hesaplama · operatör setleri · tokenomik · mekanizma tasarımı · Nash dengeleri · Solidity · Remix · Web3.js · Etherscan analitiği · CS50x (C, Python, algoritmalar)</span>
+  </div>
 
-  <details>
-    <summary><span data-en>📕 Cryptoeconomics &amp; Game Theory <span class="lvl lvl-mid">Working knowledge</span></span><span data-tr>📕 Kriptoekonomi &amp; Oyun Teorisi <span class="lvl lvl-mid">Orta düzey</span></span></summary>
-    <div class="body">
-      <ul data-en>
-        <li><b>Tokenomics</b> — distribution, utility, value capture</li>
-        <li><b>DAO voting</b> — governance structures, decision frameworks</li>
-        <li><b>Nash Equilibrium</b> — strategic behavior in decentralized systems</li>
-        <li><b>Mechanism design</b> — making rational behavior serve the protocol</li>
-        <li><b>Market simulation</b> — protocol behavior under stress</li>
-      </ul>
-      <ul data-tr>
-        <li><b>Tokenomik</b> — dağıtım, fayda, değer yakalama</li>
-        <li><b>DAO oylaması</b> — yönetişim yapıları, karar çerçeveleri</li>
-        <li><b>Nash Dengesi</b> — merkeziyetsiz sistemlerde stratejik davranış</li>
-        <li><b>Mekanizma tasarımı</b> — rasyonel davranışı protokole hizmet ettirmek</li>
-        <li><b>Pazar simülasyonu</b> — stres altında protokol davranışı</li>
-      </ul>
-    </div>
-  </details>
+  <img class="photo" src="images/content-library.jpg" alt="Speaking at an event">
 
-  <img class="photo" src="images/research-2.jpg" alt="Blockchain event">
-
-  <details>
-    <summary><span data-en>📔 Security &amp; Consensus <span class="lvl lvl-mid">Working knowledge</span></span><span data-tr>📔 Güvenlik &amp; Konsensüs <span class="lvl lvl-mid">Orta düzey</span></span></summary>
-    <div class="body">
-      <ul data-en>
-        <li><b>Byzantine Fault Tolerance</b> — consensus with bad actors in the room</li>
-        <li><b>Sybil Resistance</b> — stopping identity-based attacks</li>
-        <li><b>Slashing conditions</b> — economic deterrents for validators</li>
-        <li><b>Merkle Trees</b> — verification and storage done right</li>
-        <li><b>Digital Signatures</b> — authentication and data integrity</li>
-      </ul>
-      <ul data-tr>
-        <li><b>Bizans Hata Toleransı</b> — odada kötü aktörler varken konsensüs</li>
-        <li><b>Sybil Direnci</b> — kimlik temelli saldırıları durdurmak</li>
-        <li><b>Slashing koşulları</b> — doğrulayıcılar için ekonomik caydırıcılar</li>
-        <li><b>Merkle Ağaçları</b> — doğrulama ve depolamanın doğrusu</li>
-        <li><b>Dijital İmzalar</b> — kimlik doğrulama ve veri bütünlüğü</li>
-      </ul>
-    </div>
-  </details>
+  <div class="callout">
+    <span class="mono-h">METHOD // TOOLING</span>
+    <p data-en>Research is manual: specs read line by line, breakdowns written by hand. Execution is leveraged: modern AI tooling in the loop for code, data pipelines, and content production. Depth labels available on request.</p>
+    <p data-tr>Araştırma manueldir: spesifikasyonlar satır satır okunur, analizler elle yazılır. Yürütme kaldıraçlıdır: kod, veri pipeline'ları ve içerik üretiminde modern AI araçları devrededir. Derinlik etiketleri talep üzerine paylaşılır.</p>
+  </div>
 </section>
 
 <hr class="sep">
@@ -615,14 +488,14 @@
   <h3>MEF Blockchain Club</h3>
   <img class="photo" src="images/mef-club.jpg" alt="MEF Blockchain Club">
   <div class="callout">
-    <p data-en><b>Founder &amp; President | ~84 members.</b> Took it to "Project Club" status. Focus: hackathons and AVS development.<br>
-    🌐 <a href="https://mefblockchain.com/" target="_blank" rel="noopener">mefblockchain.com</a> ·
-    📸 <a href="https://www.instagram.com/mefblockchain/" target="_blank" rel="noopener">Instagram</a> ·
-    🐦 <a href="https://x.com/MEFblockchain" target="_blank" rel="noopener">X</a></p>
-    <p data-tr><b>Kurucu &amp; Başkan | ~84 üye.</b> "Proje Kulübü" statüsüne taşındı. Odak: hackathonlar ve AVS geliştirme.<br>
-    🌐 <a href="https://mefblockchain.com/" target="_blank" rel="noopener">mefblockchain.com</a> ·
-    📸 <a href="https://www.instagram.com/mefblockchain/" target="_blank" rel="noopener">Instagram</a> ·
-    🐦 <a href="https://x.com/MEFblockchain" target="_blank" rel="noopener">X</a></p>
+    <p data-en><b>Founder &amp; President | 84 members.</b> Took it to "Project Club" status. Focus: hackathons and AVS development.<br>
+    <a href="https://mefblockchain.com/" target="_blank" rel="noopener">WEB</a> ·
+    <a href="https://www.instagram.com/mefblockchain/" target="_blank" rel="noopener">IG</a> ·
+    <a href="https://x.com/MEFblockchain" target="_blank" rel="noopener">X</a></p>
+    <p data-tr><b>Kurucu &amp; Başkan | 84 üye.</b> "Proje Kulübü" statüsüne taşındı. Odak: hackathonlar ve AVS geliştirme.<br>
+    <a href="https://mefblockchain.com/" target="_blank" rel="noopener">WEB</a> ·
+    <a href="https://www.instagram.com/mefblockchain/" target="_blank" rel="noopener">IG</a> ·
+    <a href="https://x.com/MEFblockchain" target="_blank" rel="noopener">X</a></p>
   </div>
 
   <ul class="check-list" data-en>
@@ -650,46 +523,19 @@
     <div class="card box tech snap tech"><h4>MODA PALAS</h4><p data-en>Events and community space</p><p data-tr>Etkinlik ve topluluk alanı</p></div>
   </div>
 
-  <h3 data-en>Major Projects</h3><h3 data-tr>Büyük Projeler</h3>
+  <h3 data-en>Projects &amp; Events</h3><h3 data-tr>Projeler &amp; Etkinlikler</h3>
   <img class="photo" src="images/noir-hackathon.jpg" alt="Noir Hackathon">
-  <details>
-    <summary><span data-en>🔷 Noir Hackathon</span><span data-tr>🔷 Noir Hackathon</span></summary>
-    <div class="body">
-      <p data-en>Zero-knowledge hackathon. Developers, privacy tech, working code.</p>
-      <p data-tr>Sıfır bilgi hackathon'u. Geliştiriciler, mahremiyet teknolojisi, çalışan kod.</p>
-      <ul data-en>
-        <li>ZK circuit design</li>
-        <li>Privacy-preserving apps</li>
-        <li>Developer education, community building</li>
-      </ul>
-      <ul data-tr>
-        <li>ZK devre tasarımı</li>
-        <li>Mahremiyet koruyan uygulamalar</li>
-        <li>Geliştirici eğitimi, topluluk inşası</li>
-      </ul>
-    </div>
-  </details>
-
-  <figure>
-    <img class="photo" src="images/mef-runners.jpg" alt="MEF Runners" style="margin:0">
-    <figcaption data-en>MEF Runners — President</figcaption>
-    <figcaption data-tr>MEF Runners — Başkan</figcaption>
-  </figure>
+  <div class="callout">
+    <p data-en><b>[P-01] Noir Hackathon.</b> Zero-knowledge hackathon: developers, privacy tech, working code. ZK circuit design, privacy-preserving apps, developer education.</p>
+    <p data-tr><b>[P-01] Noir Hackathon.</b> Sıfır bilgi hackathon'u: geliştiriciler, mahremiyet teknolojisi, çalışan kod. ZK devre tasarımı, mahremiyet koruyan uygulamalar, geliştirici eğitimi.</p>
+  </div>
 
   <h3 data-en>Ambassador Roles</h3><h3 data-tr>Elçilik Rollerim</h3>
   <img class="photo" src="images/ambassador.jpg" alt="Ambassador roles">
   <div class="callout">
-    <p data-en><b>⚡ EigenCloud Ambassador (Turkey).</b> Turkish expansion, content, community — for EigenCloud's verifiable AI infrastructure.</p>
-    <p data-tr><b>⚡ EigenCloud Elçisi (Türkiye).</b> Türkiye genişlemesi, içerik, topluluk — EigenCloud'un doğrulanabilir AI altyapısı için.</p>
+    <p data-en><b>[A-01] EigenCloud Ambassador (Turkey).</b> Turkish expansion, content, community — for EigenCloud's verifiable AI infrastructure. Restaking meetups and AVS development groundwork across Turkey.</p>
+    <p data-tr><b>[A-01] EigenCloud Elçisi (Türkiye).</b> Türkiye genişlemesi, içerik, topluluk — EigenCloud'un doğrulanabilir AI altyapısı için. Türkiye genelinde restaking buluşmaları ve AVS geliştirme zemini.</p>
   </div>
-
-  <h3>Arkhaus</h3>
-  <img class="photo" src="images/arkhaus.jpg" alt="Arkhaus">
-  <div class="callout">
-    <p data-en><b>⚡ EigenCloud Ambassador (Turkey).</b> Restaking meetups, AVS development groundwork across Turkey.</p>
-    <p data-tr><b>⚡ EigenCloud Elçisi (Türkiye).</b> Restaking buluşmaları, Türkiye genelinde AVS geliştirme zemini.</p>
-  </div>
-  <img class="photo" src="images/eigencloud-2.jpg" alt="EigenCloud event">
 
   <div class="photo-grid">
     <figure style="margin:0">
@@ -704,74 +550,25 @@
     </figure>
   </div>
 
+  <div class="photo-grid">
+    <figure style="margin:0">
+      <img src="images/eigencloud-2.jpg" alt="EigenCloud event">
+      <figcaption data-en>EigenCloud — field event</figcaption>
+      <figcaption data-tr>EigenCloud — saha etkinliği</figcaption>
+    </figure>
+    <figure style="margin:0">
+      <img src="images/mef-runners.jpg" alt="MEF Runners">
+      <figcaption data-en>MEF Runners — President</figcaption>
+      <figcaption data-tr>MEF Runners — Başkan</figcaption>
+    </figure>
+  </div>
+
   <h3 data-en>Göztepe İhsan Kurşunoğlu High School Talk</h3>
   <h3 data-tr>Göztepe İhsan Kurşunoğlu Lisesi Sunumu</h3>
   <div class="photo-grid">
     <img src="images/highschool-1.jpg" alt="High school presentation 1">
     <img src="images/highschool-2.jpg" alt="High school presentation 2">
   </div>
-</section>
-
-<hr class="sep">
-
-<!-- ================= OUTPUT ================= -->
-<section class="wrap" id="content">
-  <span class="section-tag" data-en>OUTPUT</span>
-  <span class="section-tag" data-tr>ÜRETİM</span>
-  <h2 data-en>Published work</h2>
-  <h2 data-tr>Yayınlanan işler</h2>
-  <p data-en>Videos, articles, talks. EN + TR. EigenLayer, restaking, L2s, consensus, DAO governance, cryptoeconomics, marketing analysis.</p>
-  <p data-tr>Videolar, yazılar, konuşmalar. EN + TR. EigenLayer, restaking, L2'ler, konsensüs, DAO yönetişimi, kriptoekonomi, pazarlama analizi.</p>
-
-  <img class="photo" src="images/content-library.jpg" alt="Speaking at an event">
-
-  <div class="grid-2">
-    <div>
-      <h3 data-en>📹 Video</h3><h3 data-tr>📹 Video</h3>
-      <ul class="link-list">
-        <li><a href="https://www.youtube.com/watch?v=AFCWNBIoBcU&t=288s" target="_blank" rel="noopener">▶ Stellar X402 <small>YOUTUBE</small></a></li>
-        <li><a href="https://www.youtube.com/watch?v=xHpYszRRTAw&t=297s" target="_blank" rel="noopener">▶ SUI Marketing Analysis <small>YOUTUBE</small></a></li>
-        <li><a href="https://www.youtube.com/watch?v=mpfnwuAuYDY&t=40s" target="_blank" rel="noopener">▶ Presentation <small>YOUTUBE</small></a></li>
-        <li><a href="https://www.youtube.com/watch?v=qbM9ZwbfqSM&t=143s" target="_blank" rel="noopener">▶ BRC 2.0 Marketing Analysis <small>YOUTUBE</small></a></li>
-        <li><a href="https://www.youtube.com/watch?v=4mFaF1fwSHM&t=551s" target="_blank" rel="noopener">▶ EigenLayer 101 <small>YOUTUBE</small></a></li>
-        <li><a href="https://www.youtube.com/watch?v=NOgfz86EMQM&t=623s" target="_blank" rel="noopener">▶ Bitcoin Layer 2 <small>YOUTUBE</small></a></li>
-      </ul>
-    </div>
-    <div>
-      <h3 data-en>✍️ Written</h3><h3 data-tr>✍️ Yazı</h3>
-      <ul class="link-list">
-        <li><a href="https://www.linkedin.com/pulse/from-degree-career-rethinking-employment-postmodern-era-matiloglu-jtxmf/" target="_blank" rel="noopener">✎ Rethinking Employment <small>LINKEDIN</small></a></li>
-        <li><a href="https://www.linkedin.com/pulse/eigenlayer-redistribution-ozgur-matiloglu-8nyvf/" target="_blank" rel="noopener">✎ EigenLayer Redistribution <small>LINKEDIN</small></a></li>
-        <li><a href="https://www.linkedin.com/pulse/being-gamer-investor-ozgur-matiloglu-jqk3f/" target="_blank" rel="noopener">✎ Being a Gamer Investor <small>LINKEDIN</small></a></li>
-        <li><a href="https://medium.com/@zgrmatilolu/eip-1559-base-fee-priority-tip-ve-mev-anlamas%C4%B1-zor-anlatmas%C4%B1-keyifli-bir-konu-59de6a12ca5c" target="_blank" rel="noopener">✎ EIP-1559: Base Fee &amp; MEV <small>MEDIUM</small></a></li>
-        <li><a href="https://medium.com/@zgrmatilolu/tokenizasyon-yeni-paradigman%C4%B1n-e%C5%9Fi%C4%9Finde-32413f70022c" target="_blank" rel="noopener">✎ Tokenization <small>MEDIUM</small></a></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<hr class="sep">
-
-<!-- ================= THE DOJO ================= -->
-<section class="wrap" id="dojo">
-  <span class="section-tag combat" data-en>THE DOJO</span>
-  <span class="section-tag combat" data-tr>DOJO</span>
-  <h2>Fightensus</h2>
-  <img class="photo" src="images/fightensus.jpg" alt="Fightensus">
-  <div class="callout combat">
-    <p data-en><b>Discipline, heavy bags, and high-intensity periodization. Certified training built on real sweat.</b><br>Muay Thai 1st Degree Assistant Trainer.</p>
-    <p data-tr><b>Disiplin, ağır torbalar, yüksek yoğunluklu periyotlama. Gerçek terle kurulmuş sertifikalı antrenörlük.</b><br>Muay Thai 1. Kademe Yardımcı Antrenör.</p>
-  </div>
-  <p data-en>The ring and the research desk run on the same fuel: show up, do the rounds, review the tape. Fightensus is where the two meet.</p>
-  <p data-tr>Ring ile araştırma masası aynı yakıtla çalışır: gel, raundları yap, kaydı izle. Fightensus ikisinin buluştuğu yer.</p>
-  <div class="grid-2" style="margin-top:1.2rem">
-    <div class="card box combat snap combat"><span class="ico">🥊</span><p data-en><b style="color:var(--text)">Bag work routines</b> ported to deep work blocks</p><p data-tr><b style="color:var(--text)">Torba rutinleri</b> derin çalışma bloklarına taşındı</p></div>
-    <div class="card box combat snap combat"><span class="ico">💻</span><p data-en><b style="color:var(--text)">Screen time earned</b> by gym time</p><p data-tr><b style="color:var(--text)">Ekran süresi</b> salon süresiyle kazanılır</p></div>
-    <div class="card box combat snap combat"><span class="ico">🧠</span><p data-en><b style="color:var(--text)">Clear head</b> through movement and discipline</p><p data-tr><b style="color:var(--text)">Berrak kafa</b> hareket ve disiplinle</p></div>
-    <div class="card box combat snap combat"><span class="ico">⚡</span><p data-en><b style="color:var(--text)">Peak output protocols</b> for Web3 operators</p><p data-tr><b style="color:var(--text)">Zirve verim protokolleri</b> Web3 operatörleri için</p></div>
-  </div>
-  <a class="fight-log" href="https://www.instagram.com/matilizm/" target="_blank" rel="noopener" data-en>[LOG // FIGHT INSTAGRAM -&gt; @matilizm]</a>
-  <a class="fight-log" href="https://www.instagram.com/matilizm/" target="_blank" rel="noopener" data-tr>[KAYIT // DÖVÜŞ INSTAGRAM -&gt; @matilizm]</a>
 </section>
 
 <hr class="sep">
@@ -787,11 +584,6 @@
       <span class="label">X</span>
       <span class="ctx" data-en>/ BLOCKCHAIN RESEARCH</span><span class="ctx" data-tr>/ BLOKZİNCİR ARAŞTIRMASI</span>
       <span class="handle">@fightensus_eth</span>
-    </a>
-    <a class="hub-btn combat" href="https://www.instagram.com/matilizm/" target="_blank" rel="noopener">
-      <span class="label">INSTAGRAM</span>
-      <span class="ctx" data-en>/ FIGHT LOG</span><span class="ctx" data-tr>/ DÖVÜŞ KAYDI</span>
-      <span class="handle">@matilizm</span>
     </a>
     <a class="hub-btn tech" href="https://www.linkedin.com/in/ozgurmatiloglu/" target="_blank" rel="noopener">
       <span class="label">LINKEDIN</span>
@@ -813,10 +605,10 @@
       <span class="ctx" data-en>/ DIRECT LINE</span><span class="ctx" data-tr>/ DOĞRUDAN HAT</span>
       <span class="handle">matilist51@gmail.com</span>
     </a>
-    <a class="hub-btn tech" href="https://claude.ai/public/artifacts/711bdc7a-b5ad-44e4-95b9-ef58feefbf8b" target="_blank" rel="noopener">
+    <a class="hub-btn tech" href="#research">
       <span class="label">RESEARCH</span>
-      <span class="ctx" data-en>/ PORTFOLIO</span><span class="ctx" data-tr>/ PORTFÖY</span>
-      <span class="handle" data-en>Research work archive</span><span class="handle" data-tr>Araştırma arşivi</span>
+      <span class="ctx" data-en>/ LOG — ON THIS SITE</span><span class="ctx" data-tr>/ KAYIT — BU SİTEDE</span>
+      <span class="handle" data-en>11 published artifacts, linked above</span><span class="handle" data-tr>11 yayınlanmış çıktı, yukarıda bağlantılı</span>
     </a>
     <a class="hub-btn tech" href="https://calendly.com/matilogluo-mef/30min" target="_blank" rel="noopener">
       <span class="label">CALENDLY</span>
@@ -824,8 +616,8 @@
       <span class="handle">calendly.com/matilogluo-mef</span>
     </a>
     <a class="hub-btn combat" href="https://www.instagram.com/matilizm/" target="_blank" rel="noopener">
-      <span class="label">TRAINING</span>
-      <span class="ctx" data-en>/ BOOK A SESSION</span><span class="ctx" data-tr>/ SEANS AYARLA</span>
+      <span class="label">INSTAGRAM</span>
+      <span class="ctx" data-en>/ FIGHT LOG</span><span class="ctx" data-tr>/ DÖVÜŞ KAYDI</span>
       <span class="handle">@matilizm</span>
     </a>
   </div>
@@ -837,14 +629,29 @@
   </div>
 </section>
 
+<hr class="sep">
+
+<!-- ================= DOJO (compact) ================= -->
+<section class="wrap" id="dojo">
+  <span class="section-tag combat">[F-01] THE DOJO</span>
+  <div class="dojo-card box combat snap combat">
+    <h3>Fightensus — Muay Thai</h3>
+    <p class="cert" data-en>Muay Thai 1st Degree Assistant Trainer (IFMA). Discipline, heavy bags, high-intensity periodization.</p>
+    <p class="cert" data-tr>Muay Thai 1. Kademe Yardımcı Antrenör (IFMA). Disiplin, ağır torbalar, yüksek yoğunluklu periyotlama.</p>
+    <p style="margin-top:.7rem" data-en>The ring and the research desk run on the same fuel: show up, do the rounds, review the tape.</p>
+    <p style="margin-top:.7rem" data-tr>Ring ile araştırma masası aynı yakıtla çalışır: gel, raundları yap, kaydı izle.</p>
+    <a class="fight-log" href="https://www.instagram.com/matilizm/" target="_blank" rel="noopener" data-en>[LOG // @matilizm]</a>
+    <a class="fight-log" href="https://www.instagram.com/matilizm/" target="_blank" rel="noopener" data-tr>[KAYIT // @matilizm]</a>
+  </div>
+</section>
+
 <footer>
-  <div data-en>© 2026 Özgür Matiloğlu — no template, just reps.</div>
-  <div data-tr>© 2026 Özgür Matiloğlu — şablon yok, tekrar var.</div>
-  <div class="sig"><span>[ research ]</span> × <b>[ ring ]</b> — istanbul · gmt+3</div>
+  <div data-en>© 2026 Özgür Matiloğlu. Built and maintained by hand. Istanbul, GMT+3.</div>
+  <div data-tr>© 2026 Özgür Matiloğlu. Elle kuruldu, elle bakımı yapılıyor. İstanbul, GMT+3.</div>
 </footer>
 
 <script>
-  // ---- language toggle ----
+  // ---- language toggle (?lang= param > saved pref > browser lang) ----
   function setLang(l){
     document.documentElement.classList.toggle('tr', l==='tr');
     document.documentElement.lang = l;
@@ -853,8 +660,10 @@
     try{localStorage.setItem('lang', l);}catch(e){}
   }
   try{
+    var param = new URLSearchParams(location.search).get('lang');
     var saved = localStorage.getItem('lang');
-    if(saved) setLang(saved);
+    if(param==='tr'||param==='en') setLang(param);
+    else if(saved) setLang(saved);
     else if(navigator.language && navigator.language.toLowerCase().startsWith('tr')) setLang('tr');
   }catch(e){}
 
@@ -863,7 +672,7 @@
     var lines = [
       'status: researching ethereum l2s',
       'status: executing gtm sprints',
-      'status: coaching heavy bags'
+      'status: writing elip breakdowns'
     ];
     var el = document.getElementById('typewriter');
     var li = 0, ci = 0, deleting = false;
