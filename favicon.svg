@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#050811"/>
+  <rect x="5" y="5" width="54" height="54" fill="none" stroke="#00E5FF" stroke-width="4"/>
+  <text x="30" y="45" font-family="Consolas,Menlo,monospace" font-size="34" font-weight="700" fill="#00E5FF" text-anchor="middle">Ö</text>
+  <rect x="42" y="42" width="13" height="13" fill="#FF3B30"/>
+</svg>
